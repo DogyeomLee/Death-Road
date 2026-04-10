@@ -1,96 +1,62 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+[RequireComponent(typeof(ZombieFSMManager))]
+[RequireComponent(typeof(ZombieMovement))]
 public class ZombieBase : MonoBehaviour
 {
-    [Header("기본 값 세팅")]
-    public float moveSpeed;
-    public Animator anim;
-    public CarBase car;
+    [Header("기본 참조 세팅")]
+    [SerializeField] protected ZombieMovement zombieMovement;
+    [SerializeField] protected ZombieFSMManager zombieFSMManager;
 
-    [SerializeField]
-    private Rigidbody2D[] allBodies;
+    [SerializeField] private Rigidbody2D[] allBodies;
+    [SerializeField] protected GameObject targetCar;
     private bool activated = false;
 
-    public float farDistanceSqr;
-    public float checkDistanceSqr;
-    public float checkRadius;
     public LayerMask collisionLayer;
 
 
     private void Awake()
     {
-         // 부모 + 자식 전부 가져오기
-        allBodies = GetComponentsInChildren<Rigidbody2D>();
+        zombieFSMManager = GetComponent<ZombieFSMManager>();
+        zombieMovement  = GetComponent<ZombieMovement>();
 
         // 처음엔 전부 Kinematic (애니메이션 상태)
         foreach (var rb in allBodies)
         {
+            rb.GetComponent<Rigidbody2D>();
             rb.bodyType = RigidbodyType2D.Kinematic;
         }
     }
 
-    
-    //다른 오브젝트를 참조할떄는 start() 함수를 사용
-    void Start()
-    {     
-        car = FindFirstObjectByType<CarBase>();
-    }
-
-    void FixedUpdate()
+    private void Update()
     {
-        //sqrMagnitude는 루트 계산을 하지 않아 magnitude나 Vector3.Distance보다 연산 속도가 빠름
-        float sqrDist = (car.transform.position - transform.position).sqrMagnitude;
+        if (zombieFSMManager.CurrentState == ZombieState.Dead)
+        {
+            return; 
+        }
+        if(targetCar == null)
+        {
+            TryFindTargetCar();
+            return;
+        }
 
-        if (sqrDist > farDistanceSqr)
-        {
-            DisableZombie();
-            anim.SetBool("Move", false);
-        }
-        else if(sqrDist < checkDistanceSqr)
-        {
-            MoveZombie();
-            CheckCollider();
-        }
-        else
-        {
-            EnableZombie();
-        }
+        zombieFSMManager.ChangeStateByCondition(targetCar.transform);
     }
 
-    void MoveZombie()
+    //상속 받을 함수.
+    protected virtual void FixedUpdate()
     {
-        anim.SetBool("Move", true);
-        transform.position += Vector3.left * moveSpeed * Time.deltaTime;
-    }
-
-    void EnableZombie()
-    {
-        foreach (var rb in allBodies)
+        if (zombieFSMManager.CurrentState == ZombieState.Chase)
         {
-            rb.simulated = true;
-        }
-
-    }
-    void DisableZombie()
-    {
-        foreach (var rb in allBodies)
-        {
-            rb.simulated = false;  // 물리 계산 중지
+            Move();
         }
     }
 
-    public void CheckCollider()
+    private void TryFindTargetCar()
     {
-        Collider2D hit = Physics2D.OverlapCircle(gameObject.transform.position, checkRadius, collisionLayer);
-
-        if (hit != null)
-        {
-            ActivateRagdoll();
-            anim.enabled = false;
-        }
+        targetCar = GameObject.FindGameObjectWithTag("Car");
     }
+
     public void ActivateRagdoll()
     {
         if (activated) return;
@@ -100,5 +66,11 @@ public class ZombieBase : MonoBehaviour
         {
             rb.bodyType = RigidbodyType2D.Dynamic;
         }
+    }
+
+    //재정의 할 함수.
+    protected virtual void Move()
+    {
+        zombieMovement.MoveZombie(targetCar.transform);
     }
 }

@@ -51,6 +51,5 @@ public class CarUpgrade : MonoBehaviour
             Debug.Log("업그레이드 를 최고치 까지 하였습니다.");
         }
 
-        car.CheckUpgradeLevel();
     }
 }
