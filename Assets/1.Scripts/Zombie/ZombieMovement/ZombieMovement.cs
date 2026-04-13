@@ -27,7 +27,7 @@ public class ZombieMovement : MonoBehaviour
 
         RotateZombie(direction);
 
-         rb.MovePosition(movePosition);
+         rb.MovePosition(rb.position + movePosition);
     }
 
     private void RotateZombie(float direction)
@@ -40,6 +40,10 @@ public class ZombieMovement : MonoBehaviour
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
+    }
 
+    public void DieZombie()
+    {
+        anim.enabled = false;
     }
 }

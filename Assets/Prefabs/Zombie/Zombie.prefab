@@ -107,11 +107,11 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.3
+  m_Mass: 0.1
   m_LinearDamping: 1
   m_AngularDamping: 1
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_GravityScale: 0.1
+  m_Material: {fileID: 6200000, guid: 3215b60c0266d44418ae759e15923c95, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -308,11 +308,11 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.5
+  m_Mass: 0.1
   m_LinearDamping: 1
   m_AngularDamping: 1
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_GravityScale: 0.1
+  m_Material: {fileID: 6200000, guid: 3215b60c0266d44418ae759e15923c95, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -391,7 +391,10 @@ GameObject:
   - component: {fileID: 6455950597996844788}
   - component: {fileID: 4699554539257681999}
   - component: {fileID: 2452470022675701807}
-  m_Layer: 0
+  - component: {fileID: 7302480530261849726}
+  - component: {fileID: 3665637275898302681}
+  - component: {fileID: 3051112076938644886}
+  m_Layer: 6
   m_Name: Zombie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -454,22 +457,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 546c348261edd4c47b9e1fe9b8dd7369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Zombie
-  zombieMovement: {fileID: 0}
-  zombieFSMManager: {fileID: 0}
-  allBodies:
-  - {fileID: 8583125477066594444}
-  - {fileID: 8338450493024613155}
-  - {fileID: 6821337968878020038}
-  - {fileID: 5246892254879843274}
-  - {fileID: 4997878722765944755}
-  - {fileID: 473046845655899734}
-  - {fileID: 2125573799695506472}
-  - {fileID: 3601970632176723302}
-  - {fileID: 3685749286562497120}
-  - {fileID: 2017654678320489038}
-  - {fileID: 7309340750060276765}
+  zombieMovement: {fileID: 2452470022675701807}
+  zombieFSMManager: {fileID: 4699554539257681999}
+  zombieRagdoll: {fileID: 7302480530261849726}
   targetCar: {fileID: 0}
-  collisionLayer:
+  targetLayer:
     serializedVersion: 2
     m_Bits: 8
 --- !u!114 &4699554539257681999
@@ -485,9 +477,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZombieFSMManager
   currentState: 0
-  chaseDistance: 0
-  hangDistance: 0
-  moveSpeed: 0
+  chaseDistance: 5
+  attackDistance: 0
+  hangDistance: 1
 --- !u!114 &2452470022675701807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -500,8 +492,107 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78a8466baca9b284595e2d13003f7514, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZombieMovement
-  moveSpeed: 0
-  anim: {fileID: 0}
+  moveSpeed: 2
+  anim: {fileID: 9217245578753580297}
+  rb: {fileID: 0}
+--- !u!114 &7302480530261849726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3770709988355134401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed3669f4d8a442d43947b6cfe5d18f04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ZombieRagdoll
+  allBodies:
+  - {fileID: 8583125477066594444}
+  - {fileID: 8338450493024613155}
+  - {fileID: 6821337968878020038}
+  - {fileID: 5246892254879843274}
+  - {fileID: 4997878722765944755}
+  - {fileID: 473046845655899734}
+  - {fileID: 2125573799695506472}
+  - {fileID: 3601970632176723302}
+  - {fileID: 3685749286562497120}
+  - {fileID: 2017654678320489038}
+  - {fileID: 7309340750060276765}
+  boxCollider2D: {fileID: 3665637275898302681}
+--- !u!61 &3665637275898302681
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3770709988355134401}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.015118122, y: -0.24190009}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.18358707, y: 0.7580998}
+  m_EdgeRadius: 0
+--- !u!50 &3051112076938644886
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3770709988355134401}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.25
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0.1
+  m_Material: {fileID: 6200000, guid: 3215b60c0266d44418ae759e15923c95, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &4088088981117193002
 GameObject:
   m_ObjectHideFlags: 0
@@ -1210,11 +1301,11 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.3
+  m_Mass: 0.1
   m_LinearDamping: 1
   m_AngularDamping: 1
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_GravityScale: 0.1
+  m_Material: {fileID: 6200000, guid: 3215b60c0266d44418ae759e15923c95, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1410,11 +1501,11 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.3
+  m_Mass: 0.1
   m_LinearDamping: 1
   m_AngularDamping: 1
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_GravityScale: 0.1
+  m_Material: {fileID: 6200000, guid: 3215b60c0266d44418ae759e15923c95, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1609,11 +1700,11 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.0001
+  m_Mass: 0.1
   m_LinearDamping: 1
   m_AngularDamping: 1
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_GravityScale: 0.1
+  m_Material: {fileID: 6200000, guid: 3215b60c0266d44418ae759e15923c95, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1811,11 +1902,11 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.3
+  m_Mass: 0.1
   m_LinearDamping: 1
   m_AngularDamping: 1
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_GravityScale: 0.1
+  m_Material: {fileID: 6200000, guid: 3215b60c0266d44418ae759e15923c95, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2212,11 +2303,11 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.3
+  m_Mass: 0.1
   m_LinearDamping: 1
   m_AngularDamping: 1
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_GravityScale: 0.1
+  m_Material: {fileID: 6200000, guid: 3215b60c0266d44418ae759e15923c95, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2321,6 +2412,6 @@ FixedJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.010861397, y: -0.15698624}
+  m_ConnectedAnchor: {x: -0.010861397, y: -0.15698719}
   m_DampingRatio: 0
   m_Frequency: 10

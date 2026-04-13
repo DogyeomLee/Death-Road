@@ -2,30 +2,22 @@
 
 [RequireComponent(typeof(ZombieFSMManager))]
 [RequireComponent(typeof(ZombieMovement))]
+[RequireComponent(typeof(ZombieRagdoll))]
 public class ZombieBase : MonoBehaviour
 {
     [Header("기본 참조 세팅")]
     [SerializeField] protected ZombieMovement zombieMovement;
     [SerializeField] protected ZombieFSMManager zombieFSMManager;
+    [SerializeField] protected ZombieRagdoll zombieRagdoll;
 
-    [SerializeField] private Rigidbody2D[] allBodies;
+    [Header("타켓 차량")]
     [SerializeField] protected GameObject targetCar;
-    private bool activated = false;
-
-    public LayerMask collisionLayer;
-
+    [SerializeField] protected LayerMask targetLayer;
 
     private void Awake()
     {
         zombieFSMManager = GetComponent<ZombieFSMManager>();
         zombieMovement  = GetComponent<ZombieMovement>();
-
-        // 처음엔 전부 Kinematic (애니메이션 상태)
-        foreach (var rb in allBodies)
-        {
-            rb.GetComponent<Rigidbody2D>();
-            rb.bodyType = RigidbodyType2D.Kinematic;
-        }
     }
 
     private void Update()
@@ -57,20 +49,25 @@ public class ZombieBase : MonoBehaviour
         targetCar = GameObject.FindGameObjectWithTag("Car");
     }
 
-    public void ActivateRagdoll()
+    public void DieZombie()
     {
-        if (activated) return;
-        activated = true;
-
-        foreach (var rb in allBodies)
-        {
-            rb.bodyType = RigidbodyType2D.Dynamic;
-        }
+        zombieFSMManager.ChangeStateToDead();
+        zombieMovement.DieZombie();
+        zombieRagdoll.DieZombie();
     }
 
     //재정의 할 함수.
     protected virtual void Move()
     {
         zombieMovement.MoveZombie(targetCar.transform);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        //물리적으로 비교할때는 레이어로, 비트연산으로 선능에 좋다.
+        if ((targetLayer.value & (1 << collision.gameObject.layer)) != 0)
+        {
+            DieZombie();
+        }
     }
 }

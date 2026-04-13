@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.UIElements;
+
 
 public enum ZombieState
 {
@@ -80,5 +80,15 @@ public class ZombieFSMManager : MonoBehaviour
                 }
                 break;
         }
+    }
+
+    public void ChangeStateToDead()
+    {
+        if(currentState == ZombieState.Dead)
+        {
+            return;
+        }
+
+        currentState = ZombieState.Dead;
     }
 }
