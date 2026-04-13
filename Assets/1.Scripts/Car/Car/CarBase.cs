@@ -68,22 +68,32 @@ public class CarBase : MonoBehaviour
 
     private void Fuel()
     {
-        if (carFuel.IsOutOfFuel) // 1. 일단 연료가 없는지 확인
+        if (carFuel.IsOutOfFuel) //일단 연료가 없는지 확인
         {
-            if (!isStopped) // 2. "이미 멈췄다고 이벤트를 보냈었나?" 확인
+            if (!isStopped) //이벤트를 보냈나 확인
             {
-                isStopped = true; // 3. "이제 보낼 거니까 멈춤 상태로 기록해!"
-                OnStop?.Invoke(); // 4. "멈췄다!"고 이벤트 발송
+                isStopped = true; // 멈춤 상태로 기록
+                OnStop?.Invoke(); //멈췄다고 이벤트 발송
             }
-            return; // 5. 연료가 없으니 아래 연료 소모 로직은 실행 안 함
+            return; // 아래 연료 소모 로직은 실행 안 함
         }
-        // 6. 연료가 있다면 다시 달릴 수 있는 상태이므로 false로 리셋
         isStopped = false;
 
         //차량 이동시 연료 소모
         if (carInput.Movement != 0)
         {
             carFuel.UseFuel();
+        }
+    }
+
+    //범퍼, 파괴
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        IDamagable damagable = collision.gameObject.GetComponent<IDamagable>();
+
+        if (damagable != null)
+        {
+            damagable.Destory(carMovement.CurrentSpeed);
         }
     }
 }
