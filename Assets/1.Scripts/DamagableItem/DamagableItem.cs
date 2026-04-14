@@ -1,73 +1,62 @@
 using UnityEngine;
 
-public class DamagableItem : MonoBehaviour, IDamagable
+public class DamagableItem : MonoBehaviour, IDestroyable
 {
-    [Header("�ı��� �ʿ��� ��")]
+    [Header("파괴에 필요한 힘")]
     [SerializeField] private float neededPower;
 
-    [Header("�κ� ���� ����")]
-    [SerializeField] private Rigidbody2D[] allPart;
-
-    [Header("ȿ�� ����")]
+    [Header("효과 설정")]
     [SerializeField] private GameObject damageVFX;
     [SerializeField] private AudioClip[] damageSFX;
 
-
     protected bool isDestroyed = false;
 
+    [Header("파편 프리팹 설정")]
+    [SerializeField] private GameObject[] fragmentPrefab;
 
-    protected virtual void Start()
-    {
-        DeactivatePart();
-    }
-    public virtual void Destory(float speed)
+    //오버로드.
+    public virtual void Destory(float speed, float force)
     {
         if (isDestroyed)
         {
             return;
         }
 
-        if (speed <= neededPower)
+        if (speed < neededPower)
         {
             return;
         }
 
         isDestroyed = true;
 
-        ActivatePart();
-        RandomSFX();
-        IgnoreLayer();
-
-        Destroy(gameObject, 5f);
+        RandomEFX();
+        SetActiveFragments(force);
+        gameObject.SetActive(false);
     }
-
-    private void DeactivatePart()
+    private void SetActiveFragments(float force)
     {
-        foreach (var part in allPart)
+        foreach(GameObject prefab in fragmentPrefab)
         {
-            part.bodyType = RigidbodyType2D.Kinematic;
-            part.simulated = false;
+            prefab.SetActive(true);
+
+            prefab.transform.position = transform.position;
+
+            Rigidbody2D rb = prefab.GetComponent<Rigidbody2D>();
+
+            if (rb != null)
+            {
+                // 폭발 중심으로부터의 랜덤 방향으로 튕겨나가게 함
+                Vector2 randomDir = Random.insideUnitCircle.normalized;
+                rb.AddForce(randomDir * force, ForceMode2D.Impulse);
+                Debug.Log($"{rb.name}에 {force} 만큼  힘을 가했습니다");
+            }
         }
     }
-
-    private void ActivatePart()
+    private void RandomEFX()
     {
-        foreach (var part in allPart)
-        {
-            part.bodyType = RigidbodyType2D.Dynamic;
-            part.simulated = true;
-        }
-    }
-
-    private void RandomSFX()
-    {
+        damageVFX.transform.position = this.transform.position;
         damageVFX.SetActive(true);
         int random = Random.Range(0, damageSFX.Length);
         SoundManager.Instance.PlaySfxOneShot(damageSFX[random]);
-    }
-
-    private void IgnoreLayer()
-    {
-        gameObject.layer = LayerMask.NameToLayer("IgnoreCar");
     }
 }

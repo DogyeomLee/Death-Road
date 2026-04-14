@@ -89,11 +89,12 @@ public class CarBase : MonoBehaviour
     //범퍼, 파괴
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        IDamagable damagable = collision.gameObject.GetComponent<IDamagable>();
+        IDestroyable damagable = collision.gameObject.GetComponent<IDestroyable>();
 
         if (damagable != null)
         {
-            damagable.Destory(carMovement.CurrentSpeed);
+            //차량의 속도에 따라 파괴 유무 , 파괴 흩날라기 정도.,
+            damagable.Destory(carMovement.CurrentSpeed, carMovement.CurrentSpeed * 0.5f);
         }
     }
 }

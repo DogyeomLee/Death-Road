@@ -1,23 +1,40 @@
-﻿using UnityEngine;
+﻿using System;
+using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
+using UnityEngine;
 
 [RequireComponent(typeof(ZombieFSMManager))]
 [RequireComponent(typeof(ZombieMovement))]
 [RequireComponent(typeof(ZombieRagdoll))]
-public class ZombieBase : MonoBehaviour
+[RequireComponent(typeof(ZombieEffect))]
+public class ZombieBase : MonoBehaviour, IDestroyable
 {
+    [Header("파괴에 필요한 힘")]
+    [SerializeField] private float neededPower;
+
     [Header("기본 참조 세팅")]
     [SerializeField] protected ZombieMovement zombieMovement;
     [SerializeField] protected ZombieFSMManager zombieFSMManager;
     [SerializeField] protected ZombieRagdoll zombieRagdoll;
+    [SerializeField] protected ZombieEffect zombieEffect;
 
     [Header("타켓 차량")]
     [SerializeField] protected GameObject targetCar;
     [SerializeField] protected LayerMask targetLayer;
 
+    protected bool isDestroyed = false;
+
+    //좀비 이펙트를 위한 이벤트,
+    public event Action OnDestroy;
+
+    public event Action OnDie;
+
     private void Awake()
     {
         zombieFSMManager = GetComponent<ZombieFSMManager>();
         zombieMovement  = GetComponent<ZombieMovement>();
+        zombieRagdoll = GetComponent<ZombieRagdoll>();
+        zombieEffect = GetComponent<ZombieEffect>();
     }
 
     private void Update()
@@ -54,6 +71,7 @@ public class ZombieBase : MonoBehaviour
         zombieFSMManager.ChangeStateToDead();
         zombieMovement.DieZombie();
         zombieRagdoll.DieZombie();
+        OnDie?.Invoke();
     }
 
     //재정의 할 함수.
@@ -69,5 +87,27 @@ public class ZombieBase : MonoBehaviour
         {
             DieZombie();
         }
+    }
+
+    public void Destory(float speed, float force)
+    {
+        if (isDestroyed)
+        {
+            return;
+        }
+
+        if (speed < neededPower)
+        {
+            return;
+        }
+
+        isDestroyed = true;
+
+        //이벤트 발동
+        OnDestroy?.Invoke();
+
+        DieZombie();
+        zombieRagdoll.DestoryZombie(force);
+        gameObject.SetActive(false);
     }
 }
