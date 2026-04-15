@@ -453,7 +453,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ccc8675780c0fc408ee7005dfe09e3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Barrel
-  neededPower: 3
+  neededPower: 7
+  rigidbody2D: {fileID: 0}
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 457
   damageVFX: {fileID: 2117015806174369527}
   damageSFX:
   - {fileID: 8300000, guid: 456a698270d1f2642848b9db22853b7c, type: 3}
@@ -468,11 +472,11 @@ MonoBehaviour:
   - {fileID: 1186279759178651693}
   - {fileID: 1885978325387604027}
   explosionPos: {x: 0, y: 0}
-  radius: 7
-  explosionForce: 7
+  radius: 7.7
+  explosionForce: 7.7
   explosionLayer:
     serializedVersion: 2
-    m_Bits: 841
+    m_Bits: 833
 --- !u!50 &3093612253086559799
 Rigidbody2D:
   serializedVersion: 5

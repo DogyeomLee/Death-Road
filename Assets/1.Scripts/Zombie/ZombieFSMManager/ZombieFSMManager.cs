@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 
@@ -19,6 +20,8 @@ public class ZombieFSMManager : MonoBehaviour
     [SerializeField] private float hangDistance;
 
     public ZombieState CurrentState => currentState;
+
+    public event Action OnDie;
 
     private void ChangeState(ZombieState nextState)
     {
@@ -52,6 +55,7 @@ public class ZombieFSMManager : MonoBehaviour
                     ChangeState(ZombieState.Chase);
                 }
                 break;
+
             case ZombieState.Chase:
                 if(sqrDist <= attackSqr)
                 {
@@ -66,13 +70,15 @@ public class ZombieFSMManager : MonoBehaviour
                 {
                     ChangeState(ZombieState.hang);
                 }
-                    break;
+                 break;
+
             case ZombieState.Attack:
                 if (sqrDist > attackSqr)
                 {
                     ChangeState(ZombieState.Chase);
                 }
                 break;
+
             case ZombieState.hang:
                 if(sqrDist > hangSqr)
                 {
@@ -89,6 +95,7 @@ public class ZombieFSMManager : MonoBehaviour
             return;
         }
 
+        OnDie?.Invoke();
         currentState = ZombieState.Dead;
     }
 }

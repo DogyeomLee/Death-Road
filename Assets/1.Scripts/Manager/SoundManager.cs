@@ -90,5 +90,16 @@ public class SoundManager : MonoBehaviour
         sfxSource.playOnAwake = false;
         sfxSource.loop = false;
     }
+
+    //소리의 볼륨을 조절
+    public void ChangeVolme(float vol)
+    {
+        if(vol <= 0)
+        {
+            return;
+        }
+
+        sfxSource.volume = vol;
+    }
 }
 

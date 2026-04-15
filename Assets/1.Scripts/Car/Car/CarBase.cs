@@ -9,11 +9,35 @@ using UnityEngine;
 //모든 자동차 컴포넌트들을 관리하고, 논리적으로 구현하는 스크립트
 public class CarBase : MonoBehaviour
 {
-    //참조할 컴포넌트들
-    private CarMovement carMovement;
-    private CarInput carInput;
-    private CarFuel carFuel;
-    private CarBooster carBooster;
+    public static CarBase Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+
+        DontDestroyOnLoad(gameObject);
+
+        //참조
+        if (carMovement == null && carInput == null && carFuel == null && carBooster == null)
+        {
+            carMovement = GetComponent<CarMovement>();
+            carInput = GetComponent<CarInput>();
+            carFuel = GetComponent<CarFuel>();
+            carBooster = GetComponent<CarBooster>();
+        }
+    }
+
+    [Header("참조할 컴포넌트들")]
+    [SerializeField] private CarMovement carMovement;
+    [SerializeField] private CarInput carInput;
+    [SerializeField] private CarFuel carFuel;
+    [SerializeField] private CarBooster carBooster;
 
     //차량 이펙트를 위한 이벤트,
     public event Action<float> OnDirectionChanged;
@@ -22,15 +46,10 @@ public class CarBase : MonoBehaviour
 
     public float Movement => carInput.Movement;
 
+    public float CurrentSpeed => carMovement.CurrentSpeed;
+
     private bool isStopped;
 
-    private void Awake()
-    {
-        carMovement = GetComponent<CarMovement>();
-        carInput = GetComponent<CarInput>();
-        carFuel = GetComponent<CarFuel>();
-        carBooster = GetComponent<CarBooster>();
-    }
 
     private void FixedUpdate()
     {

@@ -3,22 +3,30 @@ using UnityEngine;
 public class ZombieRagdoll : MonoBehaviour
 {
     [Header("좀비 물리 부품")]
-    [SerializeField] private Rigidbody2D[] allBodies;
+    [SerializeField] public Rigidbody2D[] allBodies;
     [SerializeField] private BoxCollider2D boxCollider2D;
+    [SerializeField] private Rigidbody2D thisBody2D;
+
+    [Header("좀비 파편 폭발 중심위치")]
+    [SerializeField] private Transform pevisPos;
 
     [Header("파편 프리팹 설정")]
     [SerializeField] private GameObject[] fragmentPrefab;
 
     private bool activated = false;
 
+    public Transform GetPevisPosition => pevisPos;
+
     private void Awake()
     {
         boxCollider2D = GetComponent<BoxCollider2D>();
+        thisBody2D = GetComponent<Rigidbody2D>();
     }
 
     private void Start()
     {
         DeactivateRagdoll();
+        pevisPos = allBodies[6].transform;
     }
 
     private void DeactivateRagdoll()
@@ -49,16 +57,17 @@ public class ZombieRagdoll : MonoBehaviour
     public void DestoryZombie(float force)
     {
         SetActiveFragments(force);
-        ActivateRagdoll();
     }
 
+    //파괴시 파편으로, force 는 흩뿌러지는 정도.
     private void SetActiveFragments(float force)
     {
         foreach (GameObject prefab in fragmentPrefab)
         {
             prefab.SetActive(true);
 
-            prefab.transform.position = transform.position;
+            //레깅돌 pevis 를 중심으로 해서 파편 폭발 중심점 잡기.
+            prefab.transform.position = pevisPos.position;
 
             Rigidbody2D rb = prefab.GetComponent<Rigidbody2D>();
 
@@ -73,15 +82,16 @@ public class ZombieRagdoll : MonoBehaviour
     }
 
     //박스 콜라이더는 초기에 차량과의 충돌을 위한것
-    //박스 콜라이더를 꺼야, 레깅돌 과의 충돌이 사실적이다.
-    private void DisableCollider()
+    private void DisableColliderRigidbody()
     {
+        //리지드 바디를 끄지 않으면 계속해서 추락한다. 그래서 파편을 활성화 하면, 계속 추락된 포지션에서 활성화된다.
         boxCollider2D.enabled = false;
+        thisBody2D.simulated = false;
     }
 
     public void DieZombie()
     {
         ActivateRagdoll();
-        DisableCollider();
+        DisableColliderRigidbody();
     }
 }

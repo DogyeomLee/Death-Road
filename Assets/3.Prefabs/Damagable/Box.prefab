@@ -1453,12 +1453,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DamagableItem
   neededPower: 3
+  rigidbody2D: {fileID: 0}
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 457
   damageVFX: {fileID: 7050593672292018072}
   damageSFX:
   - {fileID: 8300000, guid: d40db4f301d720145862a0a6beb2d348, type: 3}
   - {fileID: 8300000, guid: 3deebf8e5ee44d8448d0ddc3605e28af, type: 3}
   - {fileID: 8300000, guid: 37ac632f0869e5140b920e4bc82901e2, type: 3}
   - {fileID: 8300000, guid: 69bdf7bfcb952e44aaf6b1a936440d7a, type: 3}
+  hitSFX:
+  - {fileID: 8300000, guid: 28d1a247164a72649a171059a39e41a3, type: 3}
+  - {fileID: 8300000, guid: 3c22de9c78fdb634a909371f0de0f44d, type: 3}
+  - {fileID: 8300000, guid: 2055163c7a27a2d4491d635e2327c655, type: 3}
+  - {fileID: 8300000, guid: 1baefffaad090fb498fc24826eda4cec, type: 3}
   fragmentPrefab:
   - {fileID: 5511918583970061353}
   - {fileID: 113559917705985118}
@@ -1491,9 +1500,9 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &1185211624534490726
 BoxCollider2D:

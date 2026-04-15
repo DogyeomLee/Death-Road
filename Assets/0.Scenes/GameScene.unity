@@ -1293,12 +1293,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0147c025fa6466b419f2ccc606004b0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarSpeedMeter
-  needle: {fileID: 1019515066}
-  maxSpeed: 200
-  minAngle: 81
-  maxAngle: -82
-  smoothTime: 0.1
-  car: {fileID: 0}
 --- !u!1 &1082999580
 GameObject:
   m_ObjectHideFlags: 0
@@ -1494,7 +1488,7 @@ GameObject:
   - component: {fileID: 1166618120}
   - component: {fileID: 1166618119}
   - component: {fileID: 1166618121}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6924,11 +6918,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58fdc40fd2858c7419995207349d24a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarBoosterMeter
-  needle: {fileID: 338612746}
-  minAngle: 143
-  maxAngle: 33
-  smoothTime: 0.1
-  car: {fileID: 0}
 --- !u!1 &1711254860
 GameObject:
   m_ObjectHideFlags: 0
@@ -7610,11 +7599,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c3a8cb35e727b64096e5a4793c7a1a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarFuelMeter
-  needle: {fileID: 1097617248}
-  minAngle: 143
-  maxAngle: 34
-  smoothTime: 0.1
-  car: {fileID: 0}
 --- !u!1 &2038680231
 GameObject:
   m_ObjectHideFlags: 0

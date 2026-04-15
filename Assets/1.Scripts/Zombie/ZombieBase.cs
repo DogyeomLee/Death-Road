@@ -1,6 +1,4 @@
 ﻿using System;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 [RequireComponent(typeof(ZombieFSMManager))]
@@ -9,8 +7,11 @@ using UnityEngine;
 [RequireComponent(typeof(ZombieEffect))]
 public class ZombieBase : MonoBehaviour, IDestroyable
 {
+    [Header("죽음에 필요한 힘")]
+    [SerializeField] private float diePower;
+
     [Header("파괴에 필요한 힘")]
-    [SerializeField] private float neededPower;
+    [SerializeField] private float destoryPower;
 
     [Header("기본 참조 세팅")]
     [SerializeField] protected ZombieMovement zombieMovement;
@@ -18,16 +19,19 @@ public class ZombieBase : MonoBehaviour, IDestroyable
     [SerializeField] protected ZombieRagdoll zombieRagdoll;
     [SerializeField] protected ZombieEffect zombieEffect;
 
-    [Header("타켓 차량")]
-    [SerializeField] protected GameObject targetCar;
+    [Header("타켓")]
+    [SerializeField] public GameObject targetCar;
     [SerializeField] protected LayerMask targetLayer;
+
+    //파편 폭발 중심점 찾기위한 프로퍼티
+    public Transform GetPevisPosition => zombieRagdoll.GetPevisPosition;
 
     protected bool isDestroyed = false;
 
     //좀비 이펙트를 위한 이벤트,
     public event Action OnDestroy;
 
-    public event Action OnDie;
+    public event Action<float> OnHit;
 
     private void Awake()
     {
@@ -66,15 +70,19 @@ public class ZombieBase : MonoBehaviour, IDestroyable
         targetCar = GameObject.FindGameObjectWithTag("Car");
     }
 
-    public void DieZombie()
+    public void DieZombie(float speed)
     {
+        if(speed < diePower)
+        {
+            return;
+        }
+
         zombieFSMManager.ChangeStateToDead();
         zombieMovement.DieZombie();
         zombieRagdoll.DieZombie();
-        OnDie?.Invoke();
     }
 
-    //재정의 할 함수.
+    //재정의 할 함수
     protected virtual void Move()
     {
         zombieMovement.MoveZombie(targetCar.transform);
@@ -85,7 +93,11 @@ public class ZombieBase : MonoBehaviour, IDestroyable
         //물리적으로 비교할때는 레이어로, 비트연산으로 선능에 좋다.
         if ((targetLayer.value & (1 << collision.gameObject.layer)) != 0)
         {
-            DieZombie();
+            float impactForce = collision.relativeVelocity.magnitude;
+
+            DieZombie(impactForce);
+            Destory(impactForce, impactForce * 0.15f);
+            OnHit?.Invoke(impactForce);
         }
     }
 
@@ -96,7 +108,7 @@ public class ZombieBase : MonoBehaviour, IDestroyable
             return;
         }
 
-        if (speed < neededPower)
+        if (speed < destoryPower)
         {
             return;
         }
@@ -106,8 +118,13 @@ public class ZombieBase : MonoBehaviour, IDestroyable
         //이벤트 발동
         OnDestroy?.Invoke();
 
-        DieZombie();
+        //DieZombie();
         zombieRagdoll.DestoryZombie(force);
         gameObject.SetActive(false);
+    }
+
+    void IDestroyable.OnCollisionEnter2D(Collision2D collision)
+    {
+        OnCollisionEnter2D(collision);
     }
 }

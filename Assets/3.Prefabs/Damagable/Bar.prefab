@@ -313,11 +313,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DamagableItem
   neededPower: 3
+  rigidbody2D: {fileID: 0}
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 449
   damageVFX: {fileID: 4837254098591279499}
   damageSFX:
   - {fileID: 8300000, guid: 30d538d5fbd8c744ea31b8c1170310e2, type: 3}
   - {fileID: 8300000, guid: 7194a7317c908334aa2cb6b5ce25d006, type: 3}
   - {fileID: 8300000, guid: 22d68b706ef3e9246b4a7ad6e7b96ebb, type: 3}
+  hitSFX:
+  - {fileID: 8300000, guid: 3c22de9c78fdb634a909371f0de0f44d, type: 3}
+  - {fileID: 8300000, guid: 2055163c7a27a2d4491d635e2327c655, type: 3}
+  - {fileID: 8300000, guid: 1baefffaad090fb498fc24826eda4cec, type: 3}
+  - {fileID: 8300000, guid: 28d1a247164a72649a171059a39e41a3, type: 3}
   fragmentPrefab:
   - {fileID: 8597179447701582262}
   - {fileID: 7416816108070430251}
@@ -391,9 +400,9 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!1 &4461977715412920007
 GameObject:

@@ -10,16 +10,15 @@ public class Barrel : DamagableItem
     [Header("폭발 레이어 설정")]
     [SerializeField] private LayerMask explosionLayer;
 
-    private void Start()
-    {
-        explosionPos = (Vector2)transform.position;
-    }
-
     public override void Destory(float speed, float force)
     {
         base.Destory(speed, explosionForce);
 
-        Explosion(explosionPos, radius, explosionForce, speed);
+        if(isDestroyed)
+        {
+            explosionPos = (Vector2)transform.position;
+            Explosion(explosionPos, radius, explosionForce, speed);
+        }
     }
 
     private void AddExplosionForce(Rigidbody2D rb, float explosionForce, Vector2 explosionPosition, float explosionRadius)
@@ -36,9 +35,9 @@ public class Barrel : DamagableItem
         {
             // 정규화된 방향 벡터에 힘과 거리 비율을 곱함
             rb.AddForce(explosionDir.normalized * explosionForce * hitEffect, ForceMode2D.Impulse);
-            Debug.Log(explosionForce);
         }
     }
+
     private void Explosion(Vector2 position, float radius, float force, float speed)
     {
         // 원형 영역 내의 모든 Collider2D를 감지
@@ -52,7 +51,8 @@ public class Barrel : DamagableItem
                 continue;
             }
 
-            IDestroyable target = hit.GetComponent<IDestroyable>();
+            IDestroyable target = hit.GetComponentInParent<IDestroyable>();
+
             Rigidbody2D rb = hit.GetComponent<Rigidbody2D>();
 
             if (target != null && rb != null)
