@@ -38,7 +38,7 @@ public class ZombieRagdoll : MonoBehaviour
         }
     }
 
-    private void ActivateRagdoll()
+    public void ActivateRagdoll()
     {
         if (activated)
         {

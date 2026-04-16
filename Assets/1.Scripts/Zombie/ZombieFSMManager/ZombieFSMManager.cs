@@ -21,8 +21,6 @@ public class ZombieFSMManager : MonoBehaviour
 
     public ZombieState CurrentState => currentState;
 
-    public event Action OnDie;
-
     private void ChangeState(ZombieState nextState)
     {
         if(currentState == nextState)
@@ -95,7 +93,6 @@ public class ZombieFSMManager : MonoBehaviour
             return;
         }
 
-        OnDie?.Invoke();
         currentState = ZombieState.Dead;
     }
 }

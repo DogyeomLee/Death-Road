@@ -7,7 +7,10 @@ public class ZombiePart : MonoBehaviour
 
     private void Awake()
     {
-        parentZombie = GetComponentInParent<ZombieBase>();
+        if(parentZombie == null)
+        {
+            parentZombie = GetComponentInParent<ZombieBase>();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -16,7 +19,7 @@ public class ZombiePart : MonoBehaviour
         if (parentZombie != null)
         {
             // 부모의 로직을 그대로 사용하도록 전달
-            ((IDestroyable)parentZombie).OnCollisionEnter2D(collision);
+            parentZombie.OnCollisionEnter2D(collision);
         }
     }
 }

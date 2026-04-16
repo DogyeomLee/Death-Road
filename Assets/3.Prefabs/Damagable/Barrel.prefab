@@ -463,6 +463,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 456a698270d1f2642848b9db22853b7c, type: 3}
   - {fileID: 8300000, guid: 72da48b0501a226438fe08f7a216b54e, type: 3}
   - {fileID: 8300000, guid: b04b61fb3e5bc794ab5543c6f0247811, type: 3}
+  hitSFX:
+  - {fileID: 8300000, guid: 8e74ffae8b659b34093ae9686ca766b8, type: 3}
+  - {fileID: 8300000, guid: 69a1671a3214fb645b298aaf40f4a1d1, type: 3}
+  - {fileID: 8300000, guid: c2d83ea98b3119f4f976b9cc068da083, type: 3}
   fragmentPrefab:
   - {fileID: 1845752731042298557}
   - {fileID: 3331909067005139899}
@@ -472,8 +476,8 @@ MonoBehaviour:
   - {fileID: 1186279759178651693}
   - {fileID: 1885978325387604027}
   explosionPos: {x: 0, y: 0}
-  radius: 7.7
-  explosionForce: 7.7
+  radius: 5
+  explosionForce: 15
   explosionLayer:
     serializedVersion: 2
     m_Bits: 833

@@ -1,15 +1,27 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ZombieMovement : MonoBehaviour
 {
     [Header("기본 값 세팅")]
     public float moveSpeed;
-    public Animator anim;
+    public Animator animator;
     public Rigidbody2D rb;
+
+    private float direction;
+
+    public float GetDirection => direction;
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
+        if(rb == null)
+        {
+            rb = GetComponent<Rigidbody2D>();
+        }
+        if(animator == null)
+        {
+            animator = GetComponent<Animator>();
+        }
     }
 
     /// <summary>
@@ -18,16 +30,15 @@ public class ZombieMovement : MonoBehaviour
     /// <param name = "targetCar"> 목표 자동차</param>
     public void MoveZombie(Transform targetCar)
     {
-        anim.SetBool("Move", true);
+        //방향 결정
+        direction = (targetCar.position.x > transform.position.x) ? 1 : -1;
 
-        //좀비가 차보다 왼쪽에 있으면, -1 방향, 반대면 반대..
-        float direction = (targetCar.position.x > transform.position.x) ? 1 : -1;
+        animator.SetBool("isMoving", true);
 
-        Vector2 movePosition = new Vector2(direction * moveSpeed * Time.fixedDeltaTime, 0);
+        // 이동: X축은 속도에 맞게, Y축은 기존의 중력 속도(linearVelocity.y) 그대로 유지
+        rb.linearVelocity = new Vector2(direction * moveSpeed, rb.linearVelocity.y);
 
         RotateZombie(direction);
-
-         rb.MovePosition(rb.position + movePosition);
     }
 
     private void RotateZombie(float direction)
@@ -44,6 +55,11 @@ public class ZombieMovement : MonoBehaviour
 
     public void DieZombie()
     {
-        anim.enabled = false;
+        animator.enabled = false;
+    }
+
+    public void OffAnimation(float exitTime)
+    {
+
     }
 }

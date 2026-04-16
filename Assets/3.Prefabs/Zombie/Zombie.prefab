@@ -55,6 +55,7 @@ GameObject:
   - component: {fileID: 4247298768038938390}
   - component: {fileID: 4082624246111908665}
   - component: {fileID: 3880019008252783585}
+  - component: {fileID: 6634905247922361725}
   m_Layer: 6
   m_Name: RightHand
   m_TagString: Untagged
@@ -241,6 +242,19 @@ PolygonCollider2D:
       - {x: 0.035, y: -0.065}
       - {x: 0.035, y: 0.095}
   m_UseDelaunayMesh: 1
+--- !u!114 &6634905247922361725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718550499357657652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 917e40ab269bcaa468212797bc2e4cef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ZombiePart
+  parentZombie: {fileID: 13572157909155808}
 --- !u!1 &839842815969116233
 GameObject:
   m_ObjectHideFlags: 0
@@ -1428,7 +1442,7 @@ GameObject:
   - component: {fileID: 7668337529794041434}
   - component: {fileID: 6826658795239211461}
   - component: {fileID: 8979924251516328200}
-  - component: {fileID: 6751635224894423330}
+  - component: {fileID: 728891526777716528}
   m_Layer: 6
   m_Name: Pevis
   m_TagString: Untagged
@@ -1523,8 +1537,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_LinearDamping: 1
+  m_AngularDamping: 1
   m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: 3215b60c0266d44418ae759e15923c95, type: 2}
   m_IncludeLayers:
@@ -1634,7 +1648,7 @@ FixedJoint2D:
   m_ConnectedAnchor: {x: -0.010861397, y: -0.15698624}
   m_DampingRatio: 0
   m_Frequency: 10
---- !u!114 &6751635224894423330
+--- !u!114 &728891526777716528
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1645,8 +1659,8 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 917e40ab269bcaa468212797bc2e4cef, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
-  parentZombie: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::ZombiePart
+  parentZombie: {fileID: 13572157909155808}
 --- !u!1 &3454364715272968676
 GameObject:
   m_ObjectHideFlags: 0
@@ -1659,7 +1673,7 @@ GameObject:
   - component: {fileID: 2775068269462919918}
   - component: {fileID: 7142965120067538915}
   - component: {fileID: 4518005468424036315}
-  - component: {fileID: 1460473948713692998}
+  - component: {fileID: 7478847395062353859}
   m_Layer: 6
   m_Name: Body
   m_TagString: Untagged
@@ -1754,8 +1768,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_LinearDamping: 1
+  m_AngularDamping: 1
   m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: 3215b60c0266d44418ae759e15923c95, type: 2}
   m_IncludeLayers:
@@ -1823,7 +1837,7 @@ PolygonCollider2D:
       - {x: 0.089999996, y: -0.074999996}
       - {x: 0.089999996, y: 0.085}
   m_UseDelaunayMesh: 1
---- !u!114 &1460473948713692998
+--- !u!114 &7478847395062353859
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1834,8 +1848,8 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 917e40ab269bcaa468212797bc2e4cef, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
-  parentZombie: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::ZombiePart
+  parentZombie: {fileID: 13572157909155808}
 --- !u!1 &4122519138321964380
 GameObject:
   m_ObjectHideFlags: 0
@@ -1849,6 +1863,7 @@ GameObject:
   - component: {fileID: 8663186251444739777}
   - component: {fileID: 6084964663591663019}
   - component: {fileID: 734066916997346602}
+  - component: {fileID: 8300251331911906197}
   m_Layer: 6
   m_Name: LeftFoot
   m_TagString: Untagged
@@ -2037,6 +2052,19 @@ PolygonCollider2D:
       - {x: 0.07, y: 0.13}
       - {x: 0.06, y: 0.14}
   m_UseDelaunayMesh: 1
+--- !u!114 &8300251331911906197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4122519138321964380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 917e40ab269bcaa468212797bc2e4cef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ZombiePart
+  parentZombie: {fileID: 13572157909155808}
 --- !u!1 &4201721687171794413
 GameObject:
   m_ObjectHideFlags: 0
@@ -2449,7 +2477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZombieMovement
   moveSpeed: 1
-  anim: {fileID: 1987629354496337716}
+  animator: {fileID: 0}
   rb: {fileID: 7388988518789955008}
 --- !u!114 &3091121822221710083
 MonoBehaviour:
@@ -2513,6 +2541,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2055163c7a27a2d4491d635e2327c655, type: 3}
   - {fileID: 8300000, guid: 1baefffaad090fb498fc24826eda4cec, type: 3}
   - {fileID: 8300000, guid: 3c22de9c78fdb634a909371f0de0f44d, type: 3}
+  bloodSFX:
+  - {fileID: 8300000, guid: 1961e2c1a5505194b936185de586b91b, type: 3}
+  - {fileID: 8300000, guid: 62ed26d97dacc034aa8b5da4edeb3677, type: 3}
+  - {fileID: 8300000, guid: 120f797426dc120449650891a3ffc2ac, type: 3}
 --- !u!61 &8249591609557563707
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2585,7 +2617,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!82 &5801127764528294865
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2696,7 +2728,7 @@ GameObject:
   - component: {fileID: 7856481329835744149}
   - component: {fileID: 6466766803308061154}
   - component: {fileID: 9188036741061037930}
-  - component: {fileID: 1629182967568895330}
+  - component: {fileID: 449401990640938538}
   m_Layer: 6
   m_Name: RightLeg
   m_TagString: Untagged
@@ -2792,8 +2824,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_LinearDamping: 1
+  m_AngularDamping: 1
   m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: 3215b60c0266d44418ae759e15923c95, type: 2}
   m_IncludeLayers:
@@ -2887,7 +2919,7 @@ PolygonCollider2D:
       - {x: 0.044999998, y: 0.099999994}
       - {x: 0.035, y: 0.11}
   m_UseDelaunayMesh: 1
---- !u!114 &1629182967568895330
+--- !u!114 &449401990640938538
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2898,8 +2930,8 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 917e40ab269bcaa468212797bc2e4cef, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
-  parentZombie: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::ZombiePart
+  parentZombie: {fileID: 13572157909155808}
 --- !u!1 &5267160894225534288
 GameObject:
   m_ObjectHideFlags: 0
@@ -2913,7 +2945,7 @@ GameObject:
   - component: {fileID: 6667279475145392051}
   - component: {fileID: 5443934420922671507}
   - component: {fileID: 5803430780796987017}
-  - component: {fileID: 3492043487392644593}
+  - component: {fileID: 7638031126153375548}
   m_Layer: 6
   m_Name: LeftLeg
   m_TagString: Untagged
@@ -3009,8 +3041,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_LinearDamping: 1
+  m_AngularDamping: 1
   m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: 3215b60c0266d44418ae759e15923c95, type: 2}
   m_IncludeLayers:
@@ -3101,7 +3133,7 @@ PolygonCollider2D:
       - {x: 0.044999998, y: -0.089999996}
       - {x: 0.044999998, y: 0.11}
   m_UseDelaunayMesh: 1
---- !u!114 &3492043487392644593
+--- !u!114 &7638031126153375548
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3112,8 +3144,8 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 917e40ab269bcaa468212797bc2e4cef, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
-  parentZombie: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::ZombiePart
+  parentZombie: {fileID: 13572157909155808}
 --- !u!1 &5754933470648238016
 GameObject:
   m_ObjectHideFlags: 0
@@ -3421,6 +3453,7 @@ GameObject:
   - component: {fileID: 7712037759304773443}
   - component: {fileID: 3278498370657542178}
   - component: {fileID: 373314294376450062}
+  - component: {fileID: 3107204486582831207}
   m_Layer: 6
   m_Name: LeftHand
   m_TagString: Untagged
@@ -3608,6 +3641,19 @@ PolygonCollider2D:
       - {x: 0.04, y: -0.044999998}
       - {x: 0.04, y: 0.105}
   m_UseDelaunayMesh: 1
+--- !u!114 &3107204486582831207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5924366041820281885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 917e40ab269bcaa468212797bc2e4cef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ZombiePart
+  parentZombie: {fileID: 13572157909155808}
 --- !u!1 &6203682980220845625
 GameObject:
   m_ObjectHideFlags: 0
@@ -3916,7 +3962,7 @@ GameObject:
   - component: {fileID: 8068862201779091000}
   - component: {fileID: 9169146408734093952}
   - component: {fileID: 2862270301744029397}
-  - component: {fileID: 283597922773760855}
+  - component: {fileID: 206170235763317974}
   m_Layer: 6
   m_Name: Head
   m_TagString: Untagged
@@ -4011,8 +4057,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_LinearDamping: 1
+  m_AngularDamping: 1
   m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: 3215b60c0266d44418ae759e15923c95, type: 2}
   m_IncludeLayers:
@@ -4105,7 +4151,7 @@ PolygonCollider2D:
       - {x: 0.049999997, y: 0.02}
       - {x: 0.04, y: 0.04}
   m_UseDelaunayMesh: 1
---- !u!114 &283597922773760855
+--- !u!114 &206170235763317974
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4116,8 +4162,8 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 917e40ab269bcaa468212797bc2e4cef, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
-  parentZombie: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::ZombiePart
+  parentZombie: {fileID: 13572157909155808}
 --- !u!1 &6284623129449644620
 GameObject:
   m_ObjectHideFlags: 0
@@ -4425,7 +4471,7 @@ GameObject:
   - component: {fileID: 593584586748493370}
   - component: {fileID: 6086971203913818324}
   - component: {fileID: 2428209484020034059}
-  - component: {fileID: 8866739855342407070}
+  - component: {fileID: 2955744439895529714}
   m_Layer: 6
   m_Name: RightArm
   m_TagString: Untagged
@@ -4521,8 +4567,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_LinearDamping: 1
+  m_AngularDamping: 1
   m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: 3215b60c0266d44418ae759e15923c95, type: 2}
   m_IncludeLayers:
@@ -4613,7 +4659,7 @@ PolygonCollider2D:
       - {x: 0.03, y: -0.085}
       - {x: 0.03, y: 0.085}
   m_UseDelaunayMesh: 1
---- !u!114 &8866739855342407070
+--- !u!114 &2955744439895529714
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4624,8 +4670,8 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 917e40ab269bcaa468212797bc2e4cef, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
-  parentZombie: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::ZombiePart
+  parentZombie: {fileID: 13572157909155808}
 --- !u!1 &6649920836665564396
 GameObject:
   m_ObjectHideFlags: 0
@@ -4931,7 +4977,7 @@ GameObject:
   - component: {fileID: 513273708241415156}
   - component: {fileID: 496055978824353610}
   - component: {fileID: 3310677989704049430}
-  - component: {fileID: 1199323978041521920}
+  - component: {fileID: 8794537925818115742}
   m_Layer: 6
   m_Name: LeftArm
   m_TagString: Untagged
@@ -5027,8 +5073,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_LinearDamping: 1
+  m_AngularDamping: 1
   m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: 3215b60c0266d44418ae759e15923c95, type: 2}
   m_IncludeLayers:
@@ -5120,7 +5166,7 @@ PolygonCollider2D:
       - {x: 0.035, y: -0.055}
       - {x: 0.035, y: 0.085}
   m_UseDelaunayMesh: 1
---- !u!114 &1199323978041521920
+--- !u!114 &8794537925818115742
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5131,8 +5177,8 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 917e40ab269bcaa468212797bc2e4cef, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
-  parentZombie: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::ZombiePart
+  parentZombie: {fileID: 13572157909155808}
 --- !u!1 &8358282349743986214
 GameObject:
   m_ObjectHideFlags: 0
@@ -5148,7 +5194,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1918310611390487233
 Transform:
   m_ObjectHideFlags: 0
@@ -5473,6 +5519,7 @@ GameObject:
   - component: {fileID: 744947661286837643}
   - component: {fileID: 1456341555230784690}
   - component: {fileID: 1255481378475189466}
+  - component: {fileID: 6570084672018320473}
   m_Layer: 6
   m_Name: RightFoot
   m_TagString: Untagged
@@ -5661,6 +5708,19 @@ PolygonCollider2D:
       - {x: 0.065, y: -0.14}
       - {x: 0.065, y: 0.14}
   m_UseDelaunayMesh: 1
+--- !u!114 &6570084672018320473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8911726669086164630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 917e40ab269bcaa468212797bc2e4cef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ZombiePart
+  parentZombie: {fileID: 13572157909155808}
 --- !u!1 &9062946868395130964
 GameObject:
   m_ObjectHideFlags: 0

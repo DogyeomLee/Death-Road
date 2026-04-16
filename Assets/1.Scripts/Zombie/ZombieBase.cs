@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using UnityEngine;
 
 [RequireComponent(typeof(ZombieFSMManager))]
@@ -23,37 +24,48 @@ public class ZombieBase : MonoBehaviour, IDestroyable
     [SerializeField] public GameObject targetCar;
     [SerializeField] protected LayerMask targetLayer;
 
+    //애니메이션 전용 변수
+    protected bool isMoving;
+
     //파편 폭발 중심점 찾기위한 프로퍼티
     public Transform GetPevisPosition => zombieRagdoll.GetPevisPosition;
 
+    //중복 파괴, 죽음 방지
     protected bool isDestroyed = false;
+
+    private bool isDie = false;
 
     //좀비 이펙트를 위한 이벤트,
     public event Action OnDestroy;
 
     public event Action<float> OnHit;
 
-    private void Awake()
-    {
-        zombieFSMManager = GetComponent<ZombieFSMManager>();
-        zombieMovement  = GetComponent<ZombieMovement>();
-        zombieRagdoll = GetComponent<ZombieRagdoll>();
-        zombieEffect = GetComponent<ZombieEffect>();
-    }
+    public event Action OnDie;
 
-    private void Update()
+    //private void Awake()
+    //{
+    //    //RequireComponent 를 사용하고 있어서 참조해줄 필요가 없다.(미세한 성능 향상)
+    //    //zombieFSMManager = GetComponent<ZombieFSMManager>();
+    //    //zombieMovement  = GetComponent<ZombieMovement>();
+    //    //zombieRagdoll = GetComponent<ZombieRagdoll>();
+    //    //zombieEffect = GetComponent<ZombieEffect>();
+    //}
+
+    protected virtual void Update()
     {
-        if (zombieFSMManager.CurrentState == ZombieState.Dead)
-        {
-            return; 
-        }
-        if(targetCar == null)
+        //조건문을 통해 성능 향상
+        if (targetCar == null)
         {
             TryFindTargetCar();
             return;
         }
 
         zombieFSMManager.ChangeStateByCondition(targetCar.transform);
+    }
+
+    private void TryFindTargetCar()
+    {
+        targetCar = GameObject.FindGameObjectWithTag("Car");
     }
 
     //상속 받을 함수.
@@ -63,12 +75,12 @@ public class ZombieBase : MonoBehaviour, IDestroyable
         {
             Move();
         }
+        else
+        {
+            zombieMovement.animator.SetBool("isMoving", false); 
+        }
     }
 
-    private void TryFindTargetCar()
-    {
-        targetCar = GameObject.FindGameObjectWithTag("Car");
-    }
 
     public void DieZombie(float speed)
     {
@@ -76,6 +88,10 @@ public class ZombieBase : MonoBehaviour, IDestroyable
         {
             return;
         }
+
+        isDie = true;
+        //죽었을떄 이벤트 발동
+        OnDie?.Invoke();
 
         zombieFSMManager.ChangeStateToDead();
         zombieMovement.DieZombie();
@@ -88,14 +104,19 @@ public class ZombieBase : MonoBehaviour, IDestroyable
         zombieMovement.MoveZombie(targetCar.transform);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         //물리적으로 비교할때는 레이어로, 비트연산으로 선능에 좋다.
         if ((targetLayer.value & (1 << collision.gameObject.layer)) != 0)
         {
             float impactForce = collision.relativeVelocity.magnitude;
 
-            DieZombie(impactForce);
+            //죽지 않았을 때만 죽게끔
+            if (!isDie)
+            {
+                DieZombie(impactForce);
+            }
+
             Destory(impactForce, impactForce * 0.15f);
             OnHit?.Invoke(impactForce);
         }
@@ -118,7 +139,6 @@ public class ZombieBase : MonoBehaviour, IDestroyable
         //이벤트 발동
         OnDestroy?.Invoke();
 
-        //DieZombie();
         zombieRagdoll.DestoryZombie(force);
         gameObject.SetActive(false);
     }

@@ -7,16 +7,13 @@ public class FastZombie : ZombieBase
 
     protected override void FixedUpdate()
     {
-        if(zombieFSMManager.CurrentState == ZombieState.Chase)
-        {
-            Move();
-        }
+        base.FixedUpdate();
     }
 
     protected override void Move()
     {
         zombieMovement.moveSpeed = fastMoveSpeed;
-        zombieMovement.anim.speed = 2;
+        zombieMovement.animator.speed = 2;
 
         zombieMovement.MoveZombie(targetCar.transform);
     }
