@@ -42,6 +42,8 @@ public class ZombieBase : MonoBehaviour, IDestroyable
 
     public event Action OnDie;
 
+    public static event Action OnDieForUI;
+
     //private void Awake()
     //{
     //    //RequireComponent 를 사용하고 있어서 참조해줄 필요가 없다.(미세한 성능 향상)
@@ -104,7 +106,7 @@ public class ZombieBase : MonoBehaviour, IDestroyable
         zombieMovement.MoveZombie(targetCar.transform);
     }
 
-    public void OnCollisionEnter2D(Collision2D collision)
+    public virtual void OnCollisionEnter2D(Collision2D collision)
     {
         //물리적으로 비교할때는 레이어로, 비트연산으로 선능에 좋다.
         if ((targetLayer.value & (1 << collision.gameObject.layer)) != 0)
@@ -138,6 +140,7 @@ public class ZombieBase : MonoBehaviour, IDestroyable
 
         //이벤트 발동
         OnDestroy?.Invoke();
+        OnDieForUI?.Invoke();
 
         zombieRagdoll.DestoryZombie(force);
         gameObject.SetActive(false);

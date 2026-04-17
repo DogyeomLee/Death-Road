@@ -1,24 +1,44 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class Barrel : DamagableItem
+public class Grenade : MonoBehaviour
 {
     [Header("폭발 기본 설정")]
-    [SerializeField] private Vector2 explosionPos;
+    [SerializeField] private Transform explosionPos;
     [SerializeField] private float radius;
     [SerializeField] private float explosionForce;
+    [SerializeField] private float time;
+    [SerializeField] private SoliderZombie soliderZombie;
 
     [Header("폭발 레이어 설정")]
     [SerializeField] private LayerMask explosionLayer;
 
-    public override void Destory(float speed, float force)
-    {
-        base.Destory(speed, explosionForce);
+    [Header("폭발 효과 설정")]
+    [SerializeField] private GameObject boomVFX;
+    [SerializeField] private AudioClip[] boomSFX;
 
-        if(isDestroyed)
-        {
-            explosionPos = (Vector2)transform.position;
-            Explosion(explosionPos, radius, explosionForce, speed);
-        }
+    public float GetExplosionForce => explosionForce;
+
+    private void OnEnable()
+    {
+        soliderZombie.OnThrow += Boom;
+    }
+    private void OnDisable()
+    {
+        soliderZombie.OnThrow -= Boom;
+    }
+
+    public void Boom()
+    {
+        this.transform.SetParent(null);
+        Invoke("GrenadeExplosion", time);
+    }
+
+    public void GrenadeExplosion()
+    {
+        Explosion(explosionPos.position, radius, explosionForce, explosionForce);
+        DestoryVFX();
+        this.gameObject.SetActive(false);
     }
 
     private void AddExplosionForce(Rigidbody2D rb, float explosionForce, Vector2 explosionPosition, float explosionRadius)
@@ -63,11 +83,21 @@ public class Barrel : DamagableItem
                 target.Destory(speed, force);
             }
             //파편 전용
-            else if(rb != null)
+            else if (rb != null)
             {
                 AddExplosionForce(rb, force, position, radius);
             }
         }
     }
 
+    private void DestoryVFX()
+    {
+        //파티클의 위치를 좀비의 위치로
+        boomVFX.transform.position = this.transform.position;
+        boomVFX.SetActive(true);
+
+        int boomRandom = Random.Range(0, boomSFX.Length);
+        //객체가 사라져도, 소리를 재생함
+        SoundManager.Instance.PlaySfxOneShot(boomSFX[boomRandom], 0.5f);
+    }
 }

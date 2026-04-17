@@ -13,6 +13,7 @@ public class ZombieEffect : MonoBehaviour
     [SerializeField] private AudioClip[] hitSFX;
     [SerializeField] private AudioClip[] bloodSFX;
 
+        
     private void Awake()
     {
         if (zombie == null)
@@ -63,4 +64,5 @@ public class ZombieEffect : MonoBehaviour
         //충돌에 따라 소리 조절, 두번쨰 매개변수
         SoundManager.Instance.PlaySfxOneShot(hitSFX[hitRandom], (impact * 0.35f));
     }
+
 }

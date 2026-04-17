@@ -749,7 +749,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3493262881740225512
 Transform:
   m_ObjectHideFlags: 0
@@ -827,7 +827,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FastZombie
   diePower: 3
-  destoryPower: 7
+  destoryPower: 15
   zombieMovement: {fileID: 2415542150526993399}
   zombieFSMManager: {fileID: 4016688788115783334}
   zombieRagdoll: {fileID: 7562947186987742611}

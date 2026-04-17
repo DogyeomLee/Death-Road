@@ -46,7 +46,14 @@ public class CarBase : MonoBehaviour
 
     public float Movement => carInput.Movement;
 
+    //UI 에서도 접근가능. 프로퍼티의 프로퍼티
     public float CurrentSpeed => carMovement.CurrentSpeed;
+    public float CurrentFuel => carFuel.CurrentFuel;
+    public float MaxFuel => carFuel.MaxFuel;
+    public float MaxLevelFuel => carFuel.MaxLevelFuel;  
+    public float CurrentBooster => carBooster.CurrentBooster;
+    public float MaxBooster => carBooster.MaxBooster;
+    public float MaxLevelBooster => carBooster.MaxLevelBooster;
 
     private bool isStopped;
 

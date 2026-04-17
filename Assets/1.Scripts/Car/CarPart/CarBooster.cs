@@ -4,6 +4,7 @@ public class CarBooster : MonoBehaviour
 {
     [Header("차량 부스터 설정")]
     [SerializeField] private float maxBooster;
+    [SerializeField] private float maxLevelBooster;
     [SerializeField] private float boosterPower;
     [SerializeField] private float currentBooster;
     [SerializeField] private float boosterpendAmount;
@@ -11,6 +12,7 @@ public class CarBooster : MonoBehaviour
     public Rigidbody2D rb;
 
     //UI 용 접근제한자
+    public float MaxLevelBooster => maxLevelBooster;    
     public float MaxBooster => maxBooster;
     public float CurrentBooster => currentBooster;
     

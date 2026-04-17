@@ -1645,7 +1645,7 @@ FixedJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.010861397, y: -0.15698624}
+  m_ConnectedAnchor: {x: -0.010864258, y: -0.15698624}
   m_DampingRatio: 0
   m_Frequency: 10
 --- !u!114 &728891526777716528
@@ -2439,7 +2439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Zombie
   diePower: 3
-  destoryPower: 7
+  destoryPower: 15
   zombieMovement: {fileID: 2662026729901145589}
   zombieFSMManager: {fileID: 8355692775735207426}
   zombieRagdoll: {fileID: 3091121822221710083}
@@ -5194,7 +5194,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1918310611390487233
 Transform:
   m_ObjectHideFlags: 0

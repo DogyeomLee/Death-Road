@@ -149,9 +149,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1.3
-  m_LinearDamping: 10
-  m_AngularDamping: 10
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -202,7 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 917e40ab269bcaa468212797bc2e4cef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZombiePart
-  parentZombie: {fileID: 0}
+  parentZombie: {fileID: 4488049311773445086}
 --- !u!60 &7574697475302266090
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -400,9 +400,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1.3
-  m_LinearDamping: 10
-  m_AngularDamping: 10
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -431,7 +431,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -0.0043959618, y: 0.073997736}
-  m_ConnectedAnchor: {x: 0.03337315, y: -0.099430084}
+  m_ConnectedAnchor: {x: 0.03337315, y: -0.09943077}
   m_UseConnectedAnchor: 1
   m_UseMotor: 1
   m_Motor:
@@ -453,7 +453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 917e40ab269bcaa468212797bc2e4cef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZombiePart
-  parentZombie: {fileID: 0}
+  parentZombie: {fileID: 4488049311773445086}
 --- !u!60 &7292586801734439331
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1790,9 +1790,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1.3
-  m_LinearDamping: 10
-  m_AngularDamping: 10
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -1817,7 +1817,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 917e40ab269bcaa468212797bc2e4cef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZombiePart
-  parentZombie: {fileID: 0}
+  parentZombie: {fileID: 4488049311773445086}
 --- !u!60 &2936759328036693041
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1980,9 +1980,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1.3
-  m_LinearDamping: 10
-  m_AngularDamping: 10
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -2011,7 +2011,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0.038607836}
-  m_ConnectedAnchor: {x: 0.038000107, y: -0.14997435}
+  m_ConnectedAnchor: {x: 0.037994385, y: -0.14997435}
   m_UseConnectedAnchor: 1
   m_UseMotor: 1
   m_Motor:
@@ -2037,7 +2037,7 @@ FixedJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.038000107, y: -0.17700005}
+  m_ConnectedAnchor: {x: 0.037994385, y: -0.17700005}
   m_DampingRatio: 0
   m_Frequency: 10
 --- !u!114 &1915733764620273560
@@ -2052,7 +2052,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 917e40ab269bcaa468212797bc2e4cef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZombiePart
-  parentZombie: {fileID: 0}
+  parentZombie: {fileID: 4488049311773445086}
 --- !u!60 &3140948254874159394
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2509,9 +2509,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1.3
-  m_LinearDamping: 10
-  m_AngularDamping: 10
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -2562,7 +2562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 917e40ab269bcaa468212797bc2e4cef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZombiePart
-  parentZombie: {fileID: 0}
+  parentZombie: {fileID: 4488049311773445086}
 --- !u!60 &5802768360270637403
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2723,9 +2723,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1.3
-  m_LinearDamping: 10
-  m_AngularDamping: 10
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -2754,7 +2754,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -0.018248558, y: -0.07198}
-  m_ConnectedAnchor: {x: -0.05478096, y: 0.101032734}
+  m_ConnectedAnchor: {x: -0.054779053, y: 0.10103226}
   m_UseConnectedAnchor: 1
   m_UseMotor: 1
   m_Motor:
@@ -2776,7 +2776,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 917e40ab269bcaa468212797bc2e4cef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZombiePart
-  parentZombie: {fileID: 0}
+  parentZombie: {fileID: 4488049311773445086}
 --- !u!60 &6602734231552418362
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -3135,8 +3135,10 @@ GameObject:
   - component: {fileID: 3910367549628654516}
   - component: {fileID: 8609846582031866673}
   - component: {fileID: 7033259022819516757}
-  - component: {fileID: 5877341119495642315}
-  - component: {fileID: 7730583652216518058}
+  - component: {fileID: 578922272371478881}
+  - component: {fileID: 9032919019084545376}
+  - component: {fileID: 2454210026890456024}
+  - component: {fileID: 8446627973038057469}
   m_Layer: 6
   m_Name: RightHand
   m_TagString: Untagged
@@ -3230,9 +3232,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1.3
-  m_LinearDamping: 10
-  m_AngularDamping: 10
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -3259,9 +3261,9 @@ HingeJoint2D:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_BreakAction: 3
-  m_AutoConfigureConnectedAnchor: 1
+  m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0.2, y: 0}
-  m_ConnectedAnchor: {x: -0.0045531136, y: -0.13760431}
+  m_ConnectedAnchor: {x: -0.0045517515, y: -0.13760431}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -3271,7 +3273,7 @@ HingeJoint2D:
   m_AngleLimits:
     m_LowerAngle: 14.473587
     m_UpperAngle: 94.09723
---- !u!114 &5877341119495642315
+--- !u!114 &578922272371478881
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3283,8 +3285,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 917e40ab269bcaa468212797bc2e4cef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZombiePart
-  parentZombie: {fileID: 0}
---- !u!60 &7730583652216518058
+  parentZombie: {fileID: 4488049311773445086}
+--- !u!114 &9032919019084545376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5611878450562255108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 917e40ab269bcaa468212797bc2e4cef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ZombiePart
+  parentZombie: {fileID: 4488049311773445086}
+--- !u!255 &2454210026890456024
+FixedJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5611878450562255108}
+  m_Enabled: 0
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_BreakAction: 3
+  m_AutoConfigureConnectedAnchor: 0
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: -14.8716, y: 4.0321}
+  m_DampingRatio: 0
+  m_Frequency: 0
+--- !u!60 &8446627973038057469
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3448,9 +3482,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1.3
-  m_LinearDamping: 10
-  m_AngularDamping: 10
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -3479,7 +3513,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0.01, y: 0.14}
-  m_ConnectedAnchor: {x: 0.06900151, y: -0.20699976}
+  m_ConnectedAnchor: {x: 0.068995155, y: -0.20699897}
   m_UseConnectedAnchor: 1
   m_UseMotor: 1
   m_Motor:
@@ -3501,7 +3535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 917e40ab269bcaa468212797bc2e4cef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZombiePart
-  parentZombie: {fileID: 0}
+  parentZombie: {fileID: 4488049311773445086}
 --- !u!60 &4531745337420312805
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -9211,9 +9245,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1.3
-  m_LinearDamping: 10
-  m_AngularDamping: 10
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -9242,7 +9276,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0.1400001}
-  m_ConnectedAnchor: {x: 0.07500012, y: -0.20099996}
+  m_ConnectedAnchor: {x: 0.07502238, y: -0.20100036}
   m_UseConnectedAnchor: 1
   m_UseMotor: 1
   m_Motor:
@@ -9264,7 +9298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 917e40ab269bcaa468212797bc2e4cef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZombiePart
-  parentZombie: {fileID: 0}
+  parentZombie: {fileID: 4488049311773445086}
 --- !u!60 &3687140530965335702
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -14625,9 +14659,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1.3
-  m_LinearDamping: 10
-  m_AngularDamping: 10
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -14656,7 +14690,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -0.0065939426, y: 0.0813241}
-  m_ConnectedAnchor: {x: -0.06565094, y: -0.09743623}
+  m_ConnectedAnchor: {x: -0.065656394, y: -0.09743623}
   m_UseConnectedAnchor: 1
   m_UseMotor: 1
   m_Motor:
@@ -14678,7 +14712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 917e40ab269bcaa468212797bc2e4cef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZombiePart
-  parentZombie: {fileID: 0}
+  parentZombie: {fileID: 4488049311773445086}
 --- !u!60 &4996370686679718672
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -14767,7 +14801,7 @@ Transform:
   m_GameObject: {fileID: 8672833383563986977}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.05, y: 0.03, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14814,8 +14848,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdbc87567cfc36c4ca3b977c92d4a173, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HangZombie
-  diePower: 10
-  destoryPower: 15
+  diePower: 6
+  destoryPower: 50
   zombieMovement: {fileID: 2901493929160881383}
   zombieFSMManager: {fileID: 7520054696787016608}
   zombieRagdoll: {fileID: 1840006403474706169}
@@ -14824,11 +14858,16 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 457
+  body: {fileID: 8409879796727509497}
+  jumpPower: 2
+  divePower: 2
+  hangLayer:
+    serializedVersion: 2
+    m_Bits: 8
   hands:
-  - {fileID: 8609846582031866673}
-  - {fileID: 1051419693804177240}
-  jumpPower: 0.5
-  divePower: 0.5
+  - {fileID: 2454210026890456024}
+  - {fileID: 102815992513831495}
+  maxSpeed: 5
 --- !u!114 &7520054696787016608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14842,9 +14881,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZombieFSMManager
   currentState: 0
-  chaseDistance: 5
+  chaseDistance: 10
   attackDistance: 0
-  hangDistance: 3
+  hangDistance: 5
 --- !u!114 &2901493929160881383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14982,8 +15021,8 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 1
-  m_Mass: 0.2716462
+  m_UseAutoMass: 0
+  m_Mass: 1.3
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
@@ -15107,8 +15146,10 @@ GameObject:
   - component: {fileID: 8886524404301388375}
   - component: {fileID: 1051419693804177240}
   - component: {fileID: 7964763016829833639}
-  - component: {fileID: 8595259587380363320}
-  - component: {fileID: 3467763071842485545}
+  - component: {fileID: 7493736132973577288}
+  - component: {fileID: 9152632702757957386}
+  - component: {fileID: 102815992513831495}
+  - component: {fileID: 32521957686912304}
   m_Layer: 6
   m_Name: LeftHand
   m_TagString: Untagged
@@ -15202,9 +15243,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1.3
-  m_LinearDamping: 10
-  m_AngularDamping: 10
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -15231,9 +15272,9 @@ HingeJoint2D:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_BreakAction: 3
-  m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.051999774, y: -0.30500004}
+  m_AutoConfigureConnectedAnchor: 0
+  m_Anchor: {x: 0.2, y: 0}
+  m_ConnectedAnchor: {x: -0.052000456, y: -0.3049997}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -15243,7 +15284,7 @@ HingeJoint2D:
   m_AngleLimits:
     m_LowerAngle: -1.0108643
     m_UpperAngle: 83.55231
---- !u!114 &8595259587380363320
+--- !u!114 &7493736132973577288
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15255,8 +15296,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 917e40ab269bcaa468212797bc2e4cef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZombiePart
-  parentZombie: {fileID: 0}
---- !u!60 &3467763071842485545
+  parentZombie: {fileID: 4488049311773445086}
+--- !u!114 &9152632702757957386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8736533740648909829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 917e40ab269bcaa468212797bc2e4cef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ZombiePart
+  parentZombie: {fileID: 4488049311773445086}
+--- !u!255 &102815992513831495
+FixedJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8736533740648909829}
+  m_Enabled: 0
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_BreakAction: 3
+  m_AutoConfigureConnectedAnchor: 0
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: -14.7254, y: 3.9965003}
+  m_DampingRatio: 0
+  m_Frequency: 0
+--- !u!60 &32521957686912304
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

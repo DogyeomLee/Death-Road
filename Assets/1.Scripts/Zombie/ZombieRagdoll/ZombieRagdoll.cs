@@ -94,4 +94,13 @@ public class ZombieRagdoll : MonoBehaviour
         ActivateRagdoll();
         DisableColliderRigidbody();
     }
+
+    public void IngoreCar()
+    {
+        gameObject.layer = LayerMask.NameToLayer("IgnoreCar");
+        foreach (var rb in allBodies)
+        {
+            rb.gameObject.layer = LayerMask.NameToLayer("IgnoreCar");
+        }
+    }
 }

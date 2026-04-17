@@ -78,10 +78,7 @@ public class ZombieFSMManager : MonoBehaviour
                 break;
 
             case ZombieState.hang:
-                if(sqrDist > hangSqr)
-                {
-                    ChangeState(ZombieState.Chase);
-                }
+                
                 break;
         }
     }
