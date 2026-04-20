@@ -176,7 +176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 94630eed1aa3b364d9b1f562d9eb3219, type: 3}
+  m_Texture: {fileID: 2800000, guid: 634a50451e6599a4b994bfa7e61c5a11, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -342,6 +342,7 @@ GameObject:
   - component: {fileID: 78921551}
   - component: {fileID: 78921550}
   - component: {fileID: 78921549}
+  - component: {fileID: 78921552}
   m_Layer: 5
   m_Name: EngineUp
   m_TagString: Untagged
@@ -415,7 +416,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 78921550}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 78921552}
+        m_TargetAssemblyTypeName: UpgradePart, Assembly-CSharp
+        m_MethodName: OnClickUpgradeButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &78921550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,6 +467,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 78921547}
   m_CullTransparentMesh: 1
+--- !u!114 &78921552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78921547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebbe317a7a6838348a509773cd011e31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UpgradePart
+  keyName: Engine
+  description: 
+  icon: []
+  upgradeLevelUI: {fileID: 362501001}
+  currentLevelImage:
+  - {fileID: 2800000, guid: b69e3c40d102f3f4d981ecb5838dcf2a, type: 3}
+  - {fileID: 2800000, guid: ccacaac2b70036849a7add8250c8b85d, type: 3}
+  - {fileID: 2800000, guid: 24569137946314b4e9680f19b0af3311, type: 3}
+  - {fileID: 2800000, guid: d2110a4a2096095488b0e907b2ac0d1d, type: 3}
+  levelCosts: 
+  levelValues: 
 --- !u!1 &251803726
 GameObject:
   m_ObjectHideFlags: 0
@@ -511,7 +547,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 94630eed1aa3b364d9b1f562d9eb3219, type: 3}
+  m_Texture: {fileID: 2800000, guid: 5b5fc5e34abca9b40afcf6389d2cd04b, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -538,6 +574,7 @@ GameObject:
   - component: {fileID: 266732730}
   - component: {fileID: 266732729}
   - component: {fileID: 266732728}
+  - component: {fileID: 266732731}
   m_Layer: 5
   m_Name: BumperUp
   m_TagString: Untagged
@@ -611,7 +648,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 266732729}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 266732731}
+        m_TargetAssemblyTypeName: UpgradePart, Assembly-CSharp
+        m_MethodName: OnClickUpgradeButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &266732729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -650,6 +699,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 266732726}
   m_CullTransparentMesh: 1
+--- !u!114 &266732731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266732726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebbe317a7a6838348a509773cd011e31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UpgradePart
+  keyName: Bumper
+  description: 
+  icon: []
+  upgradeLevelUI: {fileID: 409273629}
+  currentLevelImage:
+  - {fileID: 2800000, guid: d1558c6ff7ec9ce42a99584b10e183c4, type: 3}
+  - {fileID: 2800000, guid: 4929a7b288209ac49b18d9249e9eaa37, type: 3}
+  levelCosts: 
+  levelValues: 
 --- !u!1 &330168043
 GameObject:
   m_ObjectHideFlags: 0
@@ -844,7 +914,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: e43c24e9daefd0f40b5944aba8824827, type: 3}
+  m_Texture: {fileID: 2800000, guid: b69e3c40d102f3f4d981ecb5838dcf2a, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -871,6 +941,7 @@ GameObject:
   - component: {fileID: 384298067}
   - component: {fileID: 384298066}
   - component: {fileID: 384298065}
+  - component: {fileID: 384298068}
   m_Layer: 5
   m_Name: FuelUp
   m_TagString: Untagged
@@ -944,7 +1015,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 384298066}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 384298068}
+        m_TargetAssemblyTypeName: UpgradePart, Assembly-CSharp
+        m_MethodName: OnClickUpgradeButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &384298066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -983,6 +1066,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 384298063}
   m_CullTransparentMesh: 1
+--- !u!114 &384298068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384298063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebbe317a7a6838348a509773cd011e31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UpgradePart
+  keyName: Fuel
+  description: 
+  icon: []
+  upgradeLevelUI: {fileID: 1787468134}
+  currentLevelImage:
+  - {fileID: 2800000, guid: e43c24e9daefd0f40b5944aba8824827, type: 3}
+  - {fileID: 2800000, guid: 3cbc95e7a2e91d14d86803c610d55505, type: 3}
+  - {fileID: 2800000, guid: e25d58c4888ed204f8920787ff610589, type: 3}
+  - {fileID: 2800000, guid: 8d0eabf0efae7d1478a60d8a23935dfe, type: 3}
+  - {fileID: 2800000, guid: 1b75412a2318262488b38c10aef9e5a2, type: 3}
+  - {fileID: 2800000, guid: 96a1c6d8404b5c34b8a236987f76577c, type: 3}
+  - {fileID: 2800000, guid: 36bebf8d7a1a4df4f8544c92fa62265d, type: 3}
+  - {fileID: 2800000, guid: 1eed886b7e9c4ca4ca3a5baf8872706c, type: 3}
+  - {fileID: 2800000, guid: 60da62a2d1432864d97bf6f265efb9e2, type: 3}
+  - {fileID: 2800000, guid: 0318b36ca45a35e4994d5692b60e8810, type: 3}
+  - {fileID: 2800000, guid: 6ef06f7bcce64af41987fef6ef157a6f, type: 3}
+  levelCosts: 
+  levelValues: 
 --- !u!1 &409273627
 GameObject:
   m_ObjectHideFlags: 0
@@ -1423,6 +1536,7 @@ GameObject:
   - component: {fileID: 650684463}
   - component: {fileID: 650684462}
   - component: {fileID: 650684461}
+  - component: {fileID: 650684464}
   m_Layer: 5
   m_Name: BoosterUp
   m_TagString: Untagged
@@ -1496,7 +1610,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 650684462}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 650684464}
+        m_TargetAssemblyTypeName: UpgradePart, Assembly-CSharp
+        m_MethodName: OnClickUpgradeButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &650684462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1535,6 +1661,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 650684459}
   m_CullTransparentMesh: 1
+--- !u!114 &650684464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 650684459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebbe317a7a6838348a509773cd011e31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UpgradePart
+  keyName: Booster
+  description: 
+  icon: []
+  upgradeLevelUI: {fileID: 613393836}
+  currentLevelImage:
+  - {fileID: 2800000, guid: b69e3c40d102f3f4d981ecb5838dcf2a, type: 3}
+  - {fileID: 2800000, guid: ccacaac2b70036849a7add8250c8b85d, type: 3}
+  - {fileID: 2800000, guid: 24569137946314b4e9680f19b0af3311, type: 3}
+  - {fileID: 2800000, guid: d2110a4a2096095488b0e907b2ac0d1d, type: 3}
+  levelCosts: 
+  levelValues: 
 --- !u!1 &760414136
 GameObject:
   m_ObjectHideFlags: 0
@@ -1775,8 +1924,9 @@ GameObject:
   - component: {fileID: 894105035}
   - component: {fileID: 894105034}
   - component: {fileID: 894105033}
+  - component: {fileID: 894105036}
   m_Layer: 5
-  m_Name: TireUp
+  m_Name: GunUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1795,8 +1945,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1788862787}
+  - {fileID: 1897710411}
   - {fileID: 1963824969}
-  - {fileID: 1526138100}
   - {fileID: 1324708630}
   m_Father: {fileID: 1803313019}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1848,7 +1998,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 894105034}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 894105036}
+        m_TargetAssemblyTypeName: UpgradePart, Assembly-CSharp
+        m_MethodName: OnClickUpgradeButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &894105034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1887,6 +2049,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 894105031}
   m_CullTransparentMesh: 1
+--- !u!114 &894105036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 894105031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebbe317a7a6838348a509773cd011e31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UpgradePart
+  keyName: Gun
+  description: 
+  icon: []
+  upgradeLevelUI: {fileID: 1897710412}
+  currentLevelImage:
+  - {fileID: 2800000, guid: d1558c6ff7ec9ce42a99584b10e183c4, type: 3}
+  - {fileID: 2800000, guid: 4929a7b288209ac49b18d9249e9eaa37, type: 3}
+  levelCosts: 
+  levelValues: 
 --- !u!1 &911138878
 GameObject:
   m_ObjectHideFlags: 0
@@ -1944,7 +2127,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 94630eed1aa3b364d9b1f562d9eb3219, type: 3}
+  m_Texture: {fileID: 2800000, guid: 8468bb12f8d734d4a8cfed1056db6b7b, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -2374,7 +2557,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 94630eed1aa3b364d9b1f562d9eb3219, type: 3}
+  m_Texture: {fileID: 2800000, guid: dc9dc669068d3b34fa46812a60635321, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -2525,78 +2708,6 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1489919753}
-  m_CullTransparentMesh: 1
---- !u!1 &1526138099
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1526138100}
-  - component: {fileID: 1526138102}
-  - component: {fileID: 1526138101}
-  m_Layer: 5
-  m_Name: Upgrade
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1526138100
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1526138099}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 894105032}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -100}
-  m_SizeDelta: {x: 130, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1526138101
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1526138099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.RawImage
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Texture: {fileID: 2800000, guid: b69e3c40d102f3f4d981ecb5838dcf2a, type: 3}
-  m_UVRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
---- !u!222 &1526138102
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1526138099}
   m_CullTransparentMesh: 1
 --- !u!1 &1616964957
 GameObject:
@@ -3192,6 +3303,78 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1897710410
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1897710411}
+  - component: {fileID: 1897710413}
+  - component: {fileID: 1897710412}
+  m_Layer: 5
+  m_Name: Upgrade
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1897710411
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897710410}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 894105032}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -100}
+  m_SizeDelta: {x: 130, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1897710412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897710410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.RawImage
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: d1558c6ff7ec9ce42a99584b10e183c4, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &1897710413
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897710410}
+  m_CullTransparentMesh: 1
 --- !u!1 &1962286592
 GameObject:
   m_ObjectHideFlags: 0
@@ -3328,7 +3511,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Tire
+  m_text: 'Gun
 
 '
   m_isRightToLeft: 0
@@ -3410,6 +3593,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1963824968}
   m_CullTransparentMesh: 1
+--- !u!1 &1972151662
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1972151664}
+  - component: {fileID: 1972151663}
+  m_Layer: 0
+  m_Name: UpgradeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1972151663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972151662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f89b3efec01eef94abcf95449f9a09f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UpgradeManager
+--- !u!4 &1972151664
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972151662}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.6705, y: -0.56134, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1994802403
 GameObject:
   m_ObjectHideFlags: 0
@@ -3467,7 +3694,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 94630eed1aa3b364d9b1f562d9eb3219, type: 3}
+  m_Texture: {fileID: 2800000, guid: 9e6f1431671b70a48bc13a634ec022d5, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -3764,6 +3991,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1250001867162530159, guid: fb85edb2a231faf41bacf8826a74be3b, type: 3}
+      propertyPath: m_Constraints
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1574146251513768733, guid: fb85edb2a231faf41bacf8826a74be3b, type: 3}
       propertyPath: m_Name
       value: Car
@@ -3820,6 +4051,7 @@ SceneRoots:
   - {fileID: 330168046}
   - {fileID: 1189225583}
   - {fileID: 760414138}
+  - {fileID: 1972151664}
   - {fileID: 1803313019}
   - {fileID: 1962286595}
   - {fileID: 6094230909874693350}

@@ -1,18 +1,21 @@
 using UnityEngine;
 public class PlayerMoney : MonoBehaviour
 {
-    public int gold = 500;
+    public static PlayerMoney Instance { get; private set; }
 
-    public bool SpendGold(int amount)
+    private void Awake()
     {
-        if (gold >= amount)
+        if (Instance != null && Instance != this)
         {
-            gold -= amount;
-            return true;
+            Destroy(gameObject);
+            return;
         }
-        else
-        {
-            return false;
-        }
+
+        Instance = this;
+
+        DontDestroyOnLoad(gameObject);
     }
+
+    public int money = 50000;
+
 }

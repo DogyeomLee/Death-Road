@@ -73,6 +73,11 @@ public class GameSceneManager : MonoBehaviour
 
         return true;
     }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }
 
 

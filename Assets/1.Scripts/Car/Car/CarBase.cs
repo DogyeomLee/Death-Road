@@ -9,20 +9,9 @@ using UnityEngine;
 //모든 자동차 컴포넌트들을 관리하고, 논리적으로 구현하는 스크립트
 public class CarBase : MonoBehaviour
 {
-    public static CarBase Instance { get; private set; }
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        Instance = this;
-
-        DontDestroyOnLoad(gameObject);
-
         //참조
         if (carMovement == null && carInput == null && carFuel == null && carBooster == null)
         {
