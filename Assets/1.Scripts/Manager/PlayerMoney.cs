@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 public class PlayerMoney : MonoBehaviour
 {
@@ -16,6 +17,19 @@ public class PlayerMoney : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public int money = 50000;
+    [SerializeField] private int money;
 
+    public int GetMoney => money;
+
+    public void SpendMoney(int cost)
+    {
+        if(cost <= 0)
+        {
+            Debug.Log("올바르지 않는 가격");
+            return;
+        }
+
+        money -= cost;
+        money = Mathf.Clamp(money, 0, int.MaxValue);
+    }
 }

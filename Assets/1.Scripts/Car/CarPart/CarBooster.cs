@@ -47,4 +47,15 @@ public class CarBooster : MonoBehaviour
             currentBooster = Mathf.Max(0, currentBooster);
         }
     }
+
+    public void UpgradeBooster(float upBooster)
+    {
+        if (upBooster <= 0)
+        {
+            Debug.Log("업그레이드 될 연료의 값은 0 이나 음수가 될수 없습니다.");
+            return;
+        }
+
+        maxBooster = upBooster;
+    }
 }

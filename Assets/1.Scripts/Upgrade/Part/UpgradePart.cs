@@ -1,3 +1,5 @@
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,14 +11,28 @@ public class UpgradePart : MonoBehaviour
     [SerializeField] private RawImage upgradeLevelUI;
     [SerializeField] private Texture[] currentLevelImage;
 
-    [SerializeField] private int[] levelCosts;
-    [SerializeField] private int[] levelValues;
+    [SerializeField] private TMP_Text cost;
+
+    [SerializeField] private CarBase car;
+
+    private void OnEnable()
+    {
+        UpgradeManager.Instance.OnSuccessUpgrade += UpdateCost;
+        UpgradeManager.Instance.OnSuccessUpgrade += UpdatecurrentLevel;
+    }
+
+    private void OnDisable()
+    {
+        UpgradeManager.Instance.OnSuccessUpgrade -= UpdateCost;
+        UpgradeManager.Instance.OnSuccessUpgrade -= UpdatecurrentLevel;
+    }
 
     private void Start()
     {
-        CheckCurrentLevel();
-        SetCostByLevel();
-        SetValueByLevel();
+        if (UpgradeManager.Instance.upgradeData.TryGetValue(keyName, out var upgradeData))
+        {
+            cost.text = upgradeData.GetCostByLevel().ToString();
+        }
     }
 
     public void OnClickUpgradeButton()
@@ -24,7 +40,7 @@ public class UpgradePart : MonoBehaviour
         UpgradeManager.Instance.Upgrade(keyName);
     }
 
-    private void CheckCurrentLevel()
+    private void UpdatecurrentLevel()
     {
         if (UpgradeManager.Instance.upgradeData.TryGetValue(keyName, out var upgradeData))
         {
@@ -33,15 +49,13 @@ public class UpgradePart : MonoBehaviour
         }
     }
 
-    //레벨에 따라 다른 비용 설정
-    private void SetCostByLevel()
+    private void UpdateCost()
     {
+        if(UpgradeManager.Instance.upgradeData.TryGetValue(keyName, out var upgradeData))
+        {
+            int nextCost = upgradeData.GetCostByLevel();
 
-    }
-
-    //레벨에 따라 다른 업글 수치 설정
-    private void SetValueByLevel()
-    {
-
+            cost.text = (nextCost == -1) ? "MAX" : nextCost.ToString();
+        }
     }
 }

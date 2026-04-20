@@ -9,7 +9,7 @@ public interface IDestroyable
     /// </summary>
     /// <param name = "speed">파괴 시 필요한 속도(힘, 파워)</param>
     /// <param name = "force">파괴 시 날라가는 힘</param>
-    void Destory(float speed, float force);
+    void Destroy(float speed, float force);
 
     /// <summary>
     /// 충돌시 파괴

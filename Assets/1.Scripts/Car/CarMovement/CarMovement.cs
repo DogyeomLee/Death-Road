@@ -66,4 +66,15 @@ public class CarMovement : MonoBehaviour
     {
         BackWheel.useMotor = false;
     }
+
+    public void UpgradeEngine(float upSpeed)
+    {
+        if (upSpeed <= 0)
+        {
+            Debug.Log("업그레이드 될 엔진의 값은 0 이나 음수가 될수 없습니다.");
+            return;
+        }
+
+        speed += upSpeed;
+    }
 }

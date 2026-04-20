@@ -1457,6 +1457,9 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 457
+  bumperLayer:
+    serializedVersion: 2
+    m_Bits: 1024
   damageVFX: {fileID: 7050593672292018072}
   damageSFX:
   - {fileID: 8300000, guid: d40db4f301d720145862a0a6beb2d348, type: 3}

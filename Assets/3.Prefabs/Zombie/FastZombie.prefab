@@ -836,6 +836,9 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 393
+  bumperLayer:
+    serializedVersion: 2
+    m_Bits: 1024
   fastMoveSpeed: 3
 --- !u!95 &8923846403331940876
 Animator:

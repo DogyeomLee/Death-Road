@@ -7,6 +7,8 @@ public class DamagableItem : MonoBehaviour, IDestroyable
     [SerializeField] private Rigidbody2D rigidbody2D;
     [SerializeField] protected LayerMask targetLayer;
 
+    [SerializeField] protected LayerMask bumperLayer;
+
     [Header("효과 설정")]
     [SerializeField] private GameObject damageVFX;
     [SerializeField] private AudioClip[] damageSFX;
@@ -23,7 +25,7 @@ public class DamagableItem : MonoBehaviour, IDestroyable
         rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
-    public virtual void Destory(float speed, float force)
+    public virtual void Destroy(float speed, float force)
     {
         if (isDestroyed)
         {
@@ -42,6 +44,20 @@ public class DamagableItem : MonoBehaviour, IDestroyable
         gameObject.SetActive(false);
     }
 
+    public virtual void Destroy()
+    {
+        if (isDestroyed)
+        {
+            return;
+        }
+
+        isDestroyed = true;
+
+        RandomEFX();
+        SetActiveFragments(7);
+        gameObject.SetActive(false);
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if ((targetLayer.value & (1 << collision.gameObject.layer)) != 0)
@@ -49,7 +65,16 @@ public class DamagableItem : MonoBehaviour, IDestroyable
             float impactForce = collision.relativeVelocity.magnitude;
 
             HitSFX(impactForce);
-            Destory(impactForce, impactForce * 0.15f);
+            Destroy(impactForce, impactForce * 0.15f);
+        }
+
+        if ((bumperLayer.value & (1 << collision.gameObject.layer)) != 0)
+        {
+            float impactForce = collision.relativeVelocity.magnitude;
+
+            //1로 설정
+            HitSFX(1f / 0.35f);
+            Destroy();
         }
     }
 

@@ -1692,6 +1692,9 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 393
+  bumperLayer:
+    serializedVersion: 2
+    m_Bits: 1024
   grenade: {fileID: 3593119239988184694}
   throwPower: 2
 --- !u!114 &4657019618056059297

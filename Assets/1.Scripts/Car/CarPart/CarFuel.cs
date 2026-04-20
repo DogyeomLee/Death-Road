@@ -29,18 +29,13 @@ public class CarFuel : MonoBehaviour
     /// <param name = "upFuel"> 늘어난 기름의 용량 값</param>
     public void UpgradeFuel(float upFuel)
     {
-        if(maxFuel > maxLevelFuel)
-        {
-            Debug.Log("최대량을 업그레이드 했등므낟니다");
-        }
-
         if(upFuel <= 0)
         {
             Debug.Log("업그레이드 될 연료의 값은 0 이나 음수가 될수 없습니다.");
             return;
         }
 
-        maxFuel += upFuel;
+        maxFuel = upFuel;
     }
 
     public void UseFuel()

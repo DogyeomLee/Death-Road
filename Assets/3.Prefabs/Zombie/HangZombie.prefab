@@ -431,7 +431,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -0.0043959618, y: 0.073997736}
-  m_ConnectedAnchor: {x: 0.03337315, y: -0.09943077}
+  m_ConnectedAnchor: {x: 0.0333786, y: -0.099431105}
   m_UseConnectedAnchor: 1
   m_UseMotor: 1
   m_Motor:
@@ -2011,7 +2011,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0.038607836}
-  m_ConnectedAnchor: {x: 0.037994385, y: -0.14997435}
+  m_ConnectedAnchor: {x: 0.0379982, y: -0.14997435}
   m_UseConnectedAnchor: 1
   m_UseMotor: 1
   m_Motor:
@@ -2037,7 +2037,7 @@ FixedJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.037994385, y: -0.17700005}
+  m_ConnectedAnchor: {x: 0.0379982, y: -0.17700005}
   m_DampingRatio: 0
   m_Frequency: 10
 --- !u!114 &1915733764620273560
@@ -3513,7 +3513,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0.01, y: 0.14}
-  m_ConnectedAnchor: {x: 0.068995155, y: -0.20699897}
+  m_ConnectedAnchor: {x: 0.06900151, y: -0.20699897}
   m_UseConnectedAnchor: 1
   m_UseMotor: 1
   m_Motor:
@@ -9276,7 +9276,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0.1400001}
-  m_ConnectedAnchor: {x: 0.07502238, y: -0.20100036}
+  m_ConnectedAnchor: {x: 0.0750033, y: -0.20100036}
   m_UseConnectedAnchor: 1
   m_UseMotor: 1
   m_Motor:
@@ -14690,7 +14690,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -0.0065939426, y: 0.0813241}
-  m_ConnectedAnchor: {x: -0.065656394, y: -0.09743623}
+  m_ConnectedAnchor: {x: -0.06565094, y: -0.097435884}
   m_UseConnectedAnchor: 1
   m_UseMotor: 1
   m_Motor:
@@ -14858,6 +14858,9 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 457
+  bumperLayer:
+    serializedVersion: 2
+    m_Bits: 1024
   body: {fileID: 8409879796727509497}
   jumpPower: 2
   divePower: 2

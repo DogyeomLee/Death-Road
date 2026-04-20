@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(CarInput))]
 [RequireComponent(typeof(CarFuel))]
 [RequireComponent(typeof(CarBooster))]
+[RequireComponent(typeof(CarUpgrade))]
 
 //모든 자동차 컴포넌트들을 관리하고, 논리적으로 구현하는 스크립트
 public class CarBase : MonoBehaviour
@@ -19,6 +20,7 @@ public class CarBase : MonoBehaviour
             carInput = GetComponent<CarInput>();
             carFuel = GetComponent<CarFuel>();
             carBooster = GetComponent<CarBooster>();
+            carUpgrade = GetComponent<CarUpgrade>();
         }
     }
 
@@ -27,6 +29,7 @@ public class CarBase : MonoBehaviour
     [SerializeField] private CarInput carInput;
     [SerializeField] private CarFuel carFuel;
     [SerializeField] private CarBooster carBooster;
+    [SerializeField] private CarUpgrade carUpgrade;
 
     //차량 이펙트를 위한 이벤트,
     public event Action<float> OnDirectionChanged;
@@ -46,6 +49,15 @@ public class CarBase : MonoBehaviour
 
     private bool isStopped;
 
+    private void OnEnable()
+    {
+        UpgradeManager.Instance.OnSuccessUpgrade += ApplyAllUpgrades;
+    }
+
+    private void OnDisable()
+    {
+        UpgradeManager.Instance.OnSuccessUpgrade -= ApplyAllUpgrades;
+    }
 
     private void FixedUpdate()
     {
@@ -109,7 +121,15 @@ public class CarBase : MonoBehaviour
         if (damagable != null)
         {
             //차량의 속도에 따라 파괴 유무 , 파괴 흩날라기 정도.,
-            damagable.Destory(carMovement.CurrentSpeed, carMovement.CurrentSpeed * 0.5f);
+            damagable.Destroy(carMovement.CurrentSpeed, carMovement.CurrentSpeed * 0.5f);
         }
+    }
+    public void ApplyAllUpgrades()
+    {
+        carUpgrade.UpgradeGun();
+        carUpgrade.UpgradeBumper();
+        carUpgrade.UpgradeBooster(carBooster);
+        carUpgrade.UpgradeEngine(carMovement);
+        carUpgrade.UpgradeFuel(carFuel);
     }
 }

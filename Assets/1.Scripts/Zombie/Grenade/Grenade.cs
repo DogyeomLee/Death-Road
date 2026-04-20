@@ -80,7 +80,7 @@ public class Grenade : MonoBehaviour
                 // 폭발력 전달 및 대상 파괴
                 // AddExplosionForce를 재사용하거나 여기서 직접 계산
                 AddExplosionForce(rb, force, position, radius);
-                target.Destory(speed, force);
+                target.Destroy(speed, force);
             }
             //파편 전용
             else if (rb != null)

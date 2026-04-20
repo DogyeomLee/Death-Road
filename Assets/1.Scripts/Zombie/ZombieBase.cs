@@ -24,6 +24,9 @@ public class ZombieBase : MonoBehaviour, IDestroyable
     [SerializeField] public GameObject targetCar;
     [SerializeField] protected LayerMask targetLayer;
 
+    //범퍼에 닿으면 바로 파괴되게
+    [SerializeField] private LayerMask bumperLayer;
+
     //애니메이션 전용 변수
     protected bool isMoving;
 
@@ -119,12 +122,16 @@ public class ZombieBase : MonoBehaviour, IDestroyable
                 DieZombie(impactForce);
             }
 
-            Destory(impactForce, impactForce * 0.15f);
+            Destroy(impactForce, impactForce * 0.15f);
             OnHit?.Invoke(impactForce);
+        }
+        if ((bumperLayer.value & (1 << collision.gameObject.layer)) != 0)
+        {
+            Destroy();
         }
     }
 
-    public void Destory(float speed, float force)
+    public void Destroy(float speed, float force)
     {
         if (isDestroyed)
         {
@@ -143,6 +150,24 @@ public class ZombieBase : MonoBehaviour, IDestroyable
         OnDieForUI?.Invoke();
 
         zombieRagdoll.DestoryZombie(force);
+        gameObject.SetActive(false);
+    }
+
+    //오버로딩
+    public void Destroy()
+    {
+        if (isDestroyed)
+        {
+            return;
+        }
+
+        isDestroyed = true;
+
+        //이벤트 발동
+        OnDestroy?.Invoke();
+        OnDieForUI?.Invoke();
+
+        zombieRagdoll.DestoryZombie(7f);
         gameObject.SetActive(false);
     }
 
