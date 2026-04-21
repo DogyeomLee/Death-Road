@@ -26,13 +26,13 @@ public class CarEffects : MonoBehaviour
     private void OnEnable() // 이벤트 연결
     {
         car.OnDirectionChanged += HandleDirectionLight;
-        car.OnStop += HandleStopSound;
+        CarBase.OnStop += HandleStopSound;
     }
 
     private void OnDisable() // 이벤트 해제 (메모리 누수 방지)
     {
         car.OnDirectionChanged -= HandleDirectionLight;
-        car.OnStop -= HandleStopSound;
+        CarBase.OnStop -= HandleStopSound;
     }
 
     private void Update()

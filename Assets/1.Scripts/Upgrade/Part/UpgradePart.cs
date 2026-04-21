@@ -33,6 +33,9 @@ public class UpgradePart : MonoBehaviour
         {
             cost.text = upgradeData.GetCostByLevel().ToString();
         }
+
+        UpdateCost();
+        UpdatecurrentLevel();
     }
 
     public void OnClickUpgradeButton()

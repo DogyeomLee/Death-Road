@@ -46,6 +46,7 @@ public class ZombieBase : MonoBehaviour, IDestroyable
     public event Action OnDie;
 
     public static event Action OnDieForUI;
+    public static event Action OnDestoryForUI;
 
     //private void Awake()
     //{
@@ -97,6 +98,7 @@ public class ZombieBase : MonoBehaviour, IDestroyable
         isDie = true;
         //죽었을떄 이벤트 발동
         OnDie?.Invoke();
+        OnDieForUI?.Invoke();
 
         zombieFSMManager.ChangeStateToDead();
         zombieMovement.DieZombie();
@@ -147,7 +149,7 @@ public class ZombieBase : MonoBehaviour, IDestroyable
 
         //이벤트 발동
         OnDestroy?.Invoke();
-        OnDieForUI?.Invoke();
+        OnDestoryForUI?.Invoke();
 
         zombieRagdoll.DestoryZombie(force);
         gameObject.SetActive(false);

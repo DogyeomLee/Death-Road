@@ -8,6 +8,7 @@ public class CarBooster : MonoBehaviour
     [SerializeField] private float boosterPower;
     [SerializeField] private float currentBooster;
     [SerializeField] private float boosterpendAmount;
+    [SerializeField] private BoosterAnimation boosterAnimation;
 
     public Rigidbody2D rb;
 
@@ -39,6 +40,9 @@ public class CarBooster : MonoBehaviour
 
         if(isOnBooster)
         {
+            //부스터 애니메이션 발동
+            boosterAnimation.PlayAnimation();
+
             //부스터 발동
             rb.AddRelativeForce(Vector2.right * boosterPower, ForceMode2D.Force);
             //연료 소모

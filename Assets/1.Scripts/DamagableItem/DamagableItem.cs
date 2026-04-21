@@ -108,7 +108,6 @@ public class DamagableItem : MonoBehaviour, IDestroyable
     private void HitSFX(float impact)
     {
         int random = Random.Range(0, hitSFX.Length);
-        SoundManager.Instance.ChangeVolme(impact * 0.35f);
         SoundManager.Instance.PlaySfxOneShot(hitSFX[random]);
     }
 

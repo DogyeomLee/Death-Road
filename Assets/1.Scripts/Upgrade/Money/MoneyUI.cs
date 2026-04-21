@@ -33,7 +33,7 @@ public class MoneyUI : MonoBehaviour
     private void SuccessUpgrade()
     {
         upgradeText.text = successString;
-        SoundManager.Instance.PlaySfxOneShot(moneySFX[0]);
+        SoundManager.Instance.PlaySfxOneShot(moneySFX[0], 1);
         moneyText.text = PlayerMoney.Instance.GetMoney.ToString();
 
         Invoke("EmptyText", 1.0f);
@@ -42,7 +42,7 @@ public class MoneyUI : MonoBehaviour
     private void FailUpgrade()
     {
         upgradeText.text = failString;
-        SoundManager.Instance.PlaySfxOneShot(moneySFX[1]);
+        SoundManager.Instance.PlaySfxOneShot(moneySFX[1], 1);
 
         Invoke("EmptyText", 1.0f);
     }

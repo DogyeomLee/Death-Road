@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class Gun : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class Gun : MonoBehaviour
     private float currentCoolTime;
     [SerializeField] private LayerMask zombieLayer;
     [SerializeField] private Animator animator;
+
+    [Header("소리 설정")]
+    [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip[] gunSFX;
 
     private void Update()
@@ -28,9 +32,9 @@ public class Gun : MonoBehaviour
 
         int randomSFX = Random.Range(0, gunSFX.Length);
 
-        SoundManager.Instance.PlaySfxOneShot(gunSFX[randomSFX], 1);
+        audioSource.PlayOneShot(gunSFX[randomSFX]);
 
-        ZombieBase firstZombie = zombies[0];
+         ZombieBase firstZombie = zombies[0];
 
         if (firstZombie != null)
         {

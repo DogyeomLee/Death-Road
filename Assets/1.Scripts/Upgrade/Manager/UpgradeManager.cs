@@ -75,9 +75,9 @@ public class UpgradeManager : MonoBehaviour
     private void InitializeData()
     {
         AddUpdradePart("Gun", new UpgradeData("Gun", 1, new int[] { 5000 }, new int[] { 10 }));
-        AddUpdradePart("Fuel", new UpgradeData("Fuel", 10, new int[] { 100, 150, 200, 300, 450, 700, 900, 1200, 1600, 2000 }, new int[] { 10, 15, 20, 30, 35, 40, 45, 50, 55, 60 }));
+        AddUpdradePart("Fuel", new UpgradeData("Fuel", 10, new int[] { 100, 150, 200, 300, 450, 700, 900, 1200, 1600, 2000 }, new int[] { 10, 15, 20, 30, 35, 40, 45, 50, 55, 70}));
         AddUpdradePart("Booster", new UpgradeData("Booster", 3, new int[] { 1000, 3000, 5000 }, new int[] { 10, 30, 50 }));
-        AddUpdradePart("Engine", new UpgradeData("Engine", 3, new int[] { 100, 500, 1000 }, new int[] { 10, 20, 30 }));
+        AddUpdradePart("Engine", new UpgradeData("Engine", 3, new int[] { 100, 500, 1000 }, new int[] { 500, 1000, 1500 }));
         AddUpdradePart("Bumper", new UpgradeData("Bumper", 1, new int[] { 5000 }, new int[] { 10 }));
     }
 

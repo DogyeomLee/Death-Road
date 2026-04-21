@@ -11,18 +11,6 @@ using UnityEngine;
 public class CarBase : MonoBehaviour
 {
 
-    private void Awake()
-    {
-        //참조
-        if (carMovement == null && carInput == null && carFuel == null && carBooster == null)
-        {
-            carMovement = GetComponent<CarMovement>();
-            carInput = GetComponent<CarInput>();
-            carFuel = GetComponent<CarFuel>();
-            carBooster = GetComponent<CarBooster>();
-            carUpgrade = GetComponent<CarUpgrade>();
-        }
-    }
 
     [Header("참조할 컴포넌트들")]
     [SerializeField] private CarMovement carMovement;
@@ -34,7 +22,8 @@ public class CarBase : MonoBehaviour
     //차량 이펙트를 위한 이벤트,
     public event Action<float> OnDirectionChanged;
 
-    public event Action OnStop;
+    public static event Action OnStop;
+    public event Action OutOfFuel;
 
     public float Movement => carInput.Movement;
 
@@ -47,27 +36,91 @@ public class CarBase : MonoBehaviour
     public float MaxBooster => carBooster.MaxBooster;
     public float MaxLevelBooster => carBooster.MaxLevelBooster;
 
-    private bool isStopped;
+    private bool hasBooster = false;
+
+    private bool isStopped = false;
+
+    private bool hasFuelEvent = false;
+
+    private void Awake()
+    {
+        //참조
+        if (carMovement == null || carInput == null || carFuel == null || carBooster == null || carUpgrade == null)
+        {
+            carMovement = GetComponent<CarMovement>();
+            carInput = GetComponent<CarInput>();
+            carFuel = GetComponent<CarFuel>();
+            carBooster = GetComponent<CarBooster>();
+            carUpgrade = GetComponent<CarUpgrade>();
+        }
+    }
 
     private void OnEnable()
     {
-        UpgradeManager.Instance.OnSuccessUpgrade += ApplyAllUpgrades;
+        if(UpgradeManager.Instance != null)
+        {
+            UpgradeManager.Instance.OnSuccessUpgrade += ApplyAllUpgrades;
+        }
     }
 
     private void OnDisable()
     {
-        UpgradeManager.Instance.OnSuccessUpgrade -= ApplyAllUpgrades;
+        if (UpgradeManager.Instance != null)
+        {
+            UpgradeManager.Instance.OnSuccessUpgrade -= ApplyAllUpgrades;
+        }
+    }
+    private void Start()
+    {
+        if (GhostManager.Instance != null)
+        {
+            GhostManager.Instance.SetTargetCar(this);
+        }
+
+        if (carUpgrade.HasBooster())
+        {
+            hasBooster = true;
+        }
+
+        ApplyAllUpgrades();
     }
 
     private void FixedUpdate()
     {
         Move();
-        Booster();
+
+        if(hasBooster)
+        {
+            Booster();
+        }
     }
 
     private void Update()
     {
         Fuel();
+
+        if (isStopped)
+        {
+            return;
+        }
+
+        if (carMovement.CheckStopCondition())
+        {
+            isStopped = true;
+          
+            OnStop?.Invoke();
+        }
+
+        if(carFuel.IsOutOfFuel)
+        {
+            if(hasFuelEvent)
+            {
+                return;
+            }
+
+            OutOfFuel?.Invoke();
+            hasFuelEvent = true;
+        }
     }
 
     private void Move()
@@ -95,17 +148,6 @@ public class CarBase : MonoBehaviour
 
     private void Fuel()
     {
-        if (carFuel.IsOutOfFuel) //일단 연료가 없는지 확인
-        {
-            if (!isStopped) //이벤트를 보냈나 확인
-            {
-                isStopped = true; // 멈춤 상태로 기록
-                OnStop?.Invoke(); //멈췄다고 이벤트 발송
-            }
-            return; // 아래 연료 소모 로직은 실행 안 함
-        }
-        isStopped = false;
-
         //차량 이동시 연료 소모
         if (carInput.Movement != 0)
         {

@@ -32,4 +32,14 @@ public class PlayerMoney : MonoBehaviour
         money -= cost;
         money = Mathf.Clamp(money, 0, int.MaxValue);
     }
+
+    public void AddMoney(int amount)
+    {
+        if(amount <= 0)
+        {
+            return;
+        }
+
+        money += amount;
+    }
 }

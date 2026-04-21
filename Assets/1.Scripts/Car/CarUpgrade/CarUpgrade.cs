@@ -6,6 +6,18 @@ public class CarUpgrade : MonoBehaviour
     [SerializeField] private GameObject boosterObj;
     [SerializeField] private GameObject gun;
 
+    public bool HasBooster()
+    {
+        if (UpgradeManager.Instance.upgradeData.TryGetValue("Booster", out var data))
+        {
+            if (data.currentLevel >= 1)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
     public void UpgradeFuel(CarFuel fuel)
     {
         if(UpgradeManager.Instance.upgradeData.TryGetValue("Fuel", out var data))
@@ -19,7 +31,7 @@ public class CarUpgrade : MonoBehaviour
         if (UpgradeManager.Instance.upgradeData.TryGetValue("Booster", out var data))
         {
             //1일 때만, 따로 게임 오브젝트를 활성화
-            if(data.currentLevel == 1)
+            if(data.currentLevel >= 1)
             {
                 boosterObj.gameObject.SetActive(true);
             }

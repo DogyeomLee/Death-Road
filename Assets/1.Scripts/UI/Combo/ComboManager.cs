@@ -12,12 +12,12 @@ public class ComboManager : MonoBehaviour
 
     private void OnEnable()
     {
-        ZombieBase.OnDieForUI += AddCombo;
+        ZombieBase.OnDestoryForUI += AddCombo;
     }
 
     private void OnDisable()
     {
-        ZombieBase.OnDieForUI -= AddCombo;
+        ZombieBase.OnDestoryForUI -= AddCombo;
     }
 
     private void AddCombo()

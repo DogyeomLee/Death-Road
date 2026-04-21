@@ -479,8 +479,8 @@ MonoBehaviour:
   - {fileID: 1186279759178651693}
   - {fileID: 1885978325387604027}
   explosionPos: {x: 0, y: 0}
-  radius: 5
-  explosionForce: 15
+  radius: 3
+  explosionForce: 10
   explosionLayer:
     serializedVersion: 2
     m_Bits: 833

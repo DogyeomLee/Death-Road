@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 public enum GameState
 {
     None,
@@ -9,14 +10,27 @@ public enum GameState
 
 public class GameStateManager : MonoBehaviour
 {
+    public static GameStateManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        currentState = GameState.None;
+
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+
+        DontDestroyOnLoad(gameObject);
+    }
+
     private GameState currentState;
 
     public GameState GetCurrentState => currentState;
 
-    private void Start()
-    {
-        currentState = GameState.None;
-    }
     private void ChangeState(GameState nextState)
     {
         if (currentState == nextState)
@@ -33,7 +47,7 @@ public class GameStateManager : MonoBehaviour
         ChangeGameStateByScene();
     }
 
-    private void ChangeGameStateByScene()
+    public void ChangeGameStateByScene()
     {
         Scene activeScene = SceneManager.GetActiveScene();
         
@@ -61,7 +75,7 @@ public class GameStateManager : MonoBehaviour
                 {
                     ChangeState(GameState.Repair);
                 }
-                else
+                else if (activeScene.name != "GameScene")
                 {
                     ChangeState(GameState.None);
                 }
