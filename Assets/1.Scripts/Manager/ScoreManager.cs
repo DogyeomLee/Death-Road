@@ -21,8 +21,7 @@ public class ScoreManager : MonoBehaviour
     private Slider carSlider;
 
     [Header("차량 설정")]
-    [SerializeField] 
-    private GameObject car;
+    [SerializeField] private CarBase car;
 
     [Header("카운트 다운 설정")]
     [SerializeField]
@@ -69,13 +68,29 @@ public class ScoreManager : MonoBehaviour
 
         distanceUI.value = totalDistance;
 
-        car = GameObject.FindGameObjectWithTag("Car");
-
         scorePanel.SetActive(false);
     }
 
-    private void Update()
+    private void Start()
     {
+        car = FindFirstObjectByType<CarBase>();
+    }
+
+    private void FindCar()
+    {
+        if (car == null)
+        {
+            car = FindFirstObjectByType<CarBase>();
+        }
+    }
+
+    void Update()
+    {
+        if (car == null)
+        {
+            FindCar();
+        }
+
         carSlider.value = car.transform.position.x / totalDistance;
 
         scoreText.text = (carSlider.value * totalDistance).ToString("F1") + "M";
@@ -83,7 +98,7 @@ public class ScoreManager : MonoBehaviour
 
     private void ScoreToMoney()
     {
-        int scoreForDistance = (int)(carSlider.value * totalDistance);
+        int scoreForDistance = (int)(carSlider.value * totalDistance) * 10;
         int scoreForDie = dieScore * 5;
         int scoreForDestroy = destroyScore * 10;
 
@@ -124,7 +139,7 @@ public class ScoreManager : MonoBehaviour
     {
         scorePanel.SetActive(true);
 
-        int distScore = (int)(carSlider.value * totalDistance);
+        int distScore = (int)(carSlider.value * totalDistance) * 10;
         int dieScoreText = (dieScore * 5);
         int destoryScoreText = (destroyScore * 10);
 

@@ -36,6 +36,9 @@ public class CarFuel : MonoBehaviour
         }
 
         maxFuel = upFuel;
+
+        //현재 연료량도 갱신 (업그레이드 시 연료 풀 충전)
+        currentFuel = maxFuel;
     }
 
     public void UseFuel()

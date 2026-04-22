@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class CarSpeedMeter : MonoBehaviour
 {
@@ -17,19 +18,23 @@ public class CarSpeedMeter : MonoBehaviour
 
     private void Start()
     {
+        car = FindFirstObjectByType<CarBase>();
+
+        currentAngle = minAngle;
+    }
+    private void FindCar()
+    {
         if (car == null)
         {
             car = FindFirstObjectByType<CarBase>();
         }
-
-        currentAngle = minAngle;
     }
 
     void Update()
     {
-        if (car == null || needle == null)
+        if (car == null)
         {
-            return;
+            FindCar();
         }
 
         // 제 차의 속도 범위를 확인하고 그에 맞춰 나눈다

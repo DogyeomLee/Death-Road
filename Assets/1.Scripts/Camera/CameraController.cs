@@ -17,9 +17,15 @@ public class CameraController : MonoBehaviour
 
     private void Start()
     {
+        FindCar();
+    }
+
+    private void FindCar()
+    {
         if (target == null)
         {
             GameObject car = GameObject.FindGameObjectWithTag("Car");
+
             if (car != null)
             {
                 target = car.transform;
@@ -30,7 +36,10 @@ public class CameraController : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (target == null || targetCar == null) return;
+        if (target == null || targetCar == null)
+        {
+            FindCar();
+        }
 
         //위치 이동
         Vector3 desiredPosition = target.position + offset;

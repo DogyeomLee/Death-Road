@@ -16,19 +16,20 @@ public class CarBoosterMeter : MonoBehaviour
 
     private void Start()
     {
-        if (car == null)
-        {
-            car = FindFirstObjectByType<CarBase>();
-        }
+        car = FindFirstObjectByType<CarBase>();
 
         currentAngle = maxAngle;
+    }
+    private void FindCar()
+    {
+        car = FindFirstObjectByType<CarBase>();
     }
 
     void Update()
     {
-        if (car == null || needle == null)
+        if (!car.gameObject.activeSelf)
         {
-            return;
+            FindCar();
         }
 
         float boosterNormalized = Mathf.Clamp01(car.CurrentBooster / car.MaxLevelBooster);

@@ -16,19 +16,23 @@ public class CarFuelMeter : MonoBehaviour
 
     private void Start()
     {
+        car = FindFirstObjectByType<CarBase>();
+
+        currentAngle = maxAngle;
+    }
+    private void FindCar()
+    {
         if (car == null)
         {
             car = FindFirstObjectByType<CarBase>();
         }
-
-        currentAngle = maxAngle;
     }
 
     void Update()
     {
-        if (car == null || needle == null)
+        if (car == null)
         {
-            return; 
+            FindCar();
         }
 
         float fuelNormalized = Mathf.Clamp01(car.CurrentFuel / car.MaxLevelFuel);

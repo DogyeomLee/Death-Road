@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/0.Scenes/RepairScene.unity
     guid: 9d3b9bede3731074087785914370a74d
-  - enabled: 1
+  - enabled: 0
     path: Assets/0.Scenes/Test.unity
     guid: 3999279dddd09744fa66c79d14b07b8a
   m_configObjects:

@@ -49,67 +49,82 @@ public class UpgradeManager : MonoBehaviour
 {
     public static UpgradeManager Instance { get; private set; }
 
+    // [차량ID][업그레이드항목명] = 업그레이드 데이터
+    public Dictionary<int, Dictionary<string, UpgradeData>> carUpgradeData = new Dictionary<int, Dictionary<string, UpgradeData>>();
+
+    public event Action OnFailUpgrade;
+    public event Action<int> OnSuccessUpgrade; // 어떤 차가 업그레이드 되었는지 ID 전달
+
     private void Awake()
     {
-
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
+        if (Instance != null && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
-
         DontDestroyOnLoad(gameObject);
-        
-        InitializeData();
+
+        // 테스트용: 인덱스 0번과 1번 차량 데이터 초기화
+        InitializeCarData(0);
+        InitializeJeepData(1);
+        InitializeTruckData(2);
     }
 
-    public Dictionary<string, UpgradeData> upgradeData = new Dictionary<string, UpgradeData>();
-
-    //실패 전용 UI, 사운드 를 위한 이벤트
-    public event Action OnFailUpgrade;
-    //성공 전용 UI, 사운드 를 위한 이벤트
-    public event Action OnSuccessUpgrade;
-
-    private void InitializeData()
+    private void InitializeCarData(int carIndex)
     {
-        AddUpdradePart("Gun", new UpgradeData("Gun", 1, new int[] { 5000 }, new int[] { 10 }));
-        AddUpdradePart("Fuel", new UpgradeData("Fuel", 10, new int[] { 100, 150, 200, 300, 450, 700, 900, 1200, 1600, 2000 }, new int[] { 10, 15, 20, 30, 35, 40, 45, 50, 55, 70}));
-        AddUpdradePart("Booster", new UpgradeData("Booster", 3, new int[] { 1000, 3000, 5000 }, new int[] { 10, 30, 50 }));
-        AddUpdradePart("Engine", new UpgradeData("Engine", 3, new int[] { 100, 500, 1000 }, new int[] { 500, 1000, 1500 }));
-        AddUpdradePart("Bumper", new UpgradeData("Bumper", 1, new int[] { 5000 }, new int[] { 10 }));
-    }
-
-    private void AddUpdradePart(string key, UpgradeData data)
-    {
-        //중복 방지.
-        if(!upgradeData.ContainsKey(key))
+        if (!carUpgradeData.ContainsKey(carIndex))
         {
-            upgradeData.Add (key, data);
+            carUpgradeData[carIndex] = new Dictionary<string, UpgradeData>();
+
+            // 각 차마다 데이터를 독립적으로 생성
+            carUpgradeData[carIndex].Add("Gun", new UpgradeData("Gun", 1, new int[] { 2000 }, new int[] { 10 }));
+            carUpgradeData[carIndex].Add("Fuel", new UpgradeData("Fuel", 10, new int[] { 100, 150, 200, 300, 450, 700, 900, 1200, 1600, 2000 }, new int[] { 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 70 }));
+            carUpgradeData[carIndex].Add("Booster", new UpgradeData("Booster", 3, new int[] { 1000, 3000, 5000 }, new int[] { 10, 10, 30, 50 }));
+            carUpgradeData[carIndex].Add("Engine", new UpgradeData("Engine", 3, new int[] { 1000, 1500, 2000 }, new int[] { 2000, 2000, 3500, 5000 }));
+            carUpgradeData[carIndex].Add("Bumper", new UpgradeData("Bumper", 1, new int[] { 2000 }, new int[] { 10 }));
+        }
+    }
+    private void InitializeJeepData(int carIndex)
+    {
+        if (!carUpgradeData.ContainsKey(carIndex))
+        {
+            carUpgradeData[carIndex] = new Dictionary<string, UpgradeData>();
+
+            // 각 차마다 데이터를 독립적으로 생성
+            carUpgradeData[carIndex].Add("Gun", new UpgradeData("Gun", 1, new int[] { 2500 }, new int[] { 10 }));
+            carUpgradeData[carIndex].Add("Fuel", new UpgradeData("Fuel", 10, new int[] { 150, 200, 250, 350, 550, 800, 1000, 1300, 1800, 2500 }, new int[] { 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 70 }));
+            carUpgradeData[carIndex].Add("Booster", new UpgradeData("Booster", 3, new int[] { 1500, 4000, 6000 }, new int[] { 10, 10, 30, 50 }));
+            carUpgradeData[carIndex].Add("Engine", new UpgradeData("Engine", 3, new int[] { 100, 500, 1000 }, new int[] { 2000, 2000, 3000, 4000 }));
+            carUpgradeData[carIndex].Add("Bumper", new UpgradeData("Bumper", 1, new int[] { 3500 }, new int[] { 10 }));
+        }
+    }
+    private void InitializeTruckData(int carIndex)
+    {
+        if (!carUpgradeData.ContainsKey(carIndex))
+        {
+            carUpgradeData[carIndex] = new Dictionary<string, UpgradeData>();
+
+            // 각 차마다 데이터를 독립적으로 생성
+            carUpgradeData[carIndex].Add("Gun", new UpgradeData("Gun", 1, new int[] { 3000 }, new int[] { 10 }));
+            carUpgradeData[carIndex].Add("Fuel", new UpgradeData("Fuel", 10, new int[] { 100, 150, 200, 300, 450, 700, 900, 1200, 1600, 2000 }, new int[] { 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 70 }));
+            carUpgradeData[carIndex].Add("Booster", new UpgradeData("Booster", 3, new int[] { 2000, 4500, 7000 }, new int[] { 10, 10, 30, 50 }));
+            carUpgradeData[carIndex].Add("Engine", new UpgradeData("Engine", 3, new int[] { 1000, 2500, 3000 }, new int[] { 2000, 2000, 3000, 4000 }));
+            carUpgradeData[carIndex].Add("Bumper", new UpgradeData("Bumper", 1, new int[] { 4000 }, new int[] { 10 }));
         }
     }
 
-    public void Upgrade(string key)
+    public void Upgrade(string key, int targetCarIndex)
     {
-
-        //따로 순회해 찾지 않고 키로 바로 데이터를 가져온다.
-        if (upgradeData.TryGetValue(key, out UpgradeData data))
+        if (carUpgradeData.TryGetValue(targetCarIndex, out var carData))
         {
-            if(data.currentLevel < data.maxLevel && PlayerMoney.Instance.GetMoney >= data.GetCostByLevel())
+            if (carData.TryGetValue(key, out UpgradeData data))
             {
-                data.value = data.GetValueByLevel();
-                data.cost = data.GetCostByLevel();
+                if (data.currentLevel < data.maxLevel && PlayerMoney.Instance.GetMoney >= data.GetCostByLevel())
+                {
+                    data.currentLevel++;
+                    data.value = data.GetValueByLevel();
+                    PlayerMoney.Instance.SpendMoney(data.GetCostByLevel());
 
-                data.currentLevel++;
-
-                PlayerMoney.Instance.SpendMoney(data.cost);
-
-                OnSuccessUpgrade?.Invoke();
-            }
-            else
-            { 
-                OnFailUpgrade?.Invoke();    
+                    OnSuccessUpgrade?.Invoke(targetCarIndex); // 해당 차량 ID만 발송
+                }
+                else { OnFailUpgrade?.Invoke(); }
             }
         }
     }

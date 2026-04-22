@@ -34,12 +34,12 @@ public class CarMovement : MonoBehaviour
 
     private void OnEnable()
     {
-        car.OutOfFuel += Stop;
+        CarBase.OutOfFuel += Stop;
     }
 
     private void OnDisable()
     {
-        car.OutOfFuel -= Stop;
+        CarBase.OutOfFuel -= Stop;
     }
 
     /// <summary>
@@ -95,7 +95,7 @@ public class CarMovement : MonoBehaviour
             return;
         }
 
-        speed += upSpeed;
+        speed = upSpeed;
     }
 
     public bool CheckStopCondition()

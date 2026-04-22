@@ -61,5 +61,7 @@ public class CarBooster : MonoBehaviour
         }
 
         maxBooster = upBooster;
+
+        currentBooster = maxBooster;
     }
 }

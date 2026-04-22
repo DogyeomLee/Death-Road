@@ -26,13 +26,13 @@ public class CarEffects : MonoBehaviour
     private void OnEnable() // 이벤트 연결
     {
         car.OnDirectionChanged += HandleDirectionLight;
-        CarBase.OnStop += HandleStopSound;
+        CarBase.OutOfFuel += HandleStopSound;
     }
 
     private void OnDisable() // 이벤트 해제 (메모리 누수 방지)
     {
         car.OnDirectionChanged -= HandleDirectionLight;
-        CarBase.OnStop -= HandleStopSound;
+        CarBase.OutOfFuel -= HandleStopSound;
     }
 
     private void Update()
@@ -47,7 +47,7 @@ public class CarEffects : MonoBehaviour
         if (movement != 0)
         {
             currentPitch += 0.5f * Time.deltaTime;
-            currentPitch = Mathf.Clamp(currentPitch, 1f, 3f);
+            currentPitch = Mathf.Clamp(currentPitch, 1f, 2f);
         }
         else
         {

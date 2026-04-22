@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.InputSystem.LowLevel;
 
 [RequireComponent(typeof(CarMovement))]
 [RequireComponent(typeof(CarInput))]
@@ -10,7 +11,8 @@ using UnityEngine;
 //모든 자동차 컴포넌트들을 관리하고, 논리적으로 구현하는 스크립트
 public class CarBase : MonoBehaviour
 {
-
+    [Header("차량 인덱스 설정")]
+    [SerializeField] public int carIndex; // 업그레이드 용 인덱스
 
     [Header("참조할 컴포넌트들")]
     [SerializeField] private CarMovement carMovement;
@@ -19,11 +21,13 @@ public class CarBase : MonoBehaviour
     [SerializeField] private CarBooster carBooster;
     [SerializeField] private CarUpgrade carUpgrade;
 
+    [SerializeField] private Rigidbody2D thisCar;
+
     //차량 이펙트를 위한 이벤트,
     public event Action<float> OnDirectionChanged;
 
     public static event Action OnStop;
-    public event Action OutOfFuel;
+    public static event Action OutOfFuel;
 
     public float Movement => carInput.Movement;
 
@@ -42,6 +46,7 @@ public class CarBase : MonoBehaviour
 
     private bool hasFuelEvent = false;
 
+
     private void Awake()
     {
         //참조
@@ -53,13 +58,18 @@ public class CarBase : MonoBehaviour
             carBooster = GetComponent<CarBooster>();
             carUpgrade = GetComponent<CarUpgrade>();
         }
+
+        if(thisCar == null)
+        {
+            thisCar = GetComponent<Rigidbody2D>();
+        }
     }
 
     private void OnEnable()
     {
         if(UpgradeManager.Instance != null)
         {
-            UpgradeManager.Instance.OnSuccessUpgrade += ApplyAllUpgrades;
+            UpgradeManager.Instance.OnSuccessUpgrade += HandleUpgrade;
         }
     }
 
@@ -67,7 +77,7 @@ public class CarBase : MonoBehaviour
     {
         if (UpgradeManager.Instance != null)
         {
-            UpgradeManager.Instance.OnSuccessUpgrade -= ApplyAllUpgrades;
+            UpgradeManager.Instance.OnSuccessUpgrade -= HandleUpgrade;
         }
     }
     private void Start()
@@ -75,11 +85,6 @@ public class CarBase : MonoBehaviour
         if (GhostManager.Instance != null)
         {
             GhostManager.Instance.SetTargetCar(this);
-        }
-
-        if (carUpgrade.HasBooster())
-        {
-            hasBooster = true;
         }
 
         ApplyAllUpgrades();
@@ -166,6 +171,15 @@ public class CarBase : MonoBehaviour
             damagable.Destroy(carMovement.CurrentSpeed, carMovement.CurrentSpeed * 0.5f);
         }
     }
+    private void HandleUpgrade(int upgradedIndex)
+    {
+        // 내 인덱스와 일치할 때만 업그레이드 로직 실행
+        if (upgradedIndex == this.carIndex)
+        {
+            ApplyAllUpgrades();
+        }
+    }
+
     public void ApplyAllUpgrades()
     {
         carUpgrade.UpgradeGun();
@@ -173,5 +187,7 @@ public class CarBase : MonoBehaviour
         carUpgrade.UpgradeBooster(carBooster);
         carUpgrade.UpgradeEngine(carMovement);
         carUpgrade.UpgradeFuel(carFuel);
+
+        hasBooster = carUpgrade.HasBooster();
     }
 }

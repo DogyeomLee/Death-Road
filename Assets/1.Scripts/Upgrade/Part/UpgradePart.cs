@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class UpgradePart : MonoBehaviour
 {
+    [SerializeField] private int carIndex;
     [SerializeField] private string keyName;
     [SerializeField] private string description;
     [SerializeField] private Sprite[] icon;
@@ -17,48 +18,50 @@ public class UpgradePart : MonoBehaviour
 
     private void OnEnable()
     {
-        UpgradeManager.Instance.OnSuccessUpgrade += UpdateCost;
-        UpgradeManager.Instance.OnSuccessUpgrade += UpdatecurrentLevel;
+        UpgradeManager.Instance.OnSuccessUpgrade += HandleUpgradeEvent;
     }
 
     private void OnDisable()
     {
-        UpgradeManager.Instance.OnSuccessUpgrade -= UpdateCost;
-        UpgradeManager.Instance.OnSuccessUpgrade -= UpdatecurrentLevel;
+        UpgradeManager.Instance.OnSuccessUpgrade -= HandleUpgradeEvent;
     }
 
     private void Start()
     {
-        if (UpgradeManager.Instance.upgradeData.TryGetValue(keyName, out var upgradeData))
-        {
-            cost.text = upgradeData.GetCostByLevel().ToString();
-        }
-
-        UpdateCost();
-        UpdatecurrentLevel();
+        UpdateUI();
     }
 
     public void OnClickUpgradeButton()
     {
-        UpgradeManager.Instance.Upgrade(keyName);
+        UpgradeManager.Instance.Upgrade(keyName, carIndex);
     }
 
-    private void UpdatecurrentLevel()
+    private void HandleUpgradeEvent(int upgradedCarIndex)
     {
-        if (UpgradeManager.Instance.upgradeData.TryGetValue(keyName, out var upgradeData))
+        // 만약 업데이트된 차가 내 차(carIndex)와 같다면 UI를 갱신
+        if (upgradedCarIndex == this.carIndex)
         {
-            //미리 지정해둔 레벨 표시 이미지를 현재의 이미지 배열에 맞게 할당.
-            upgradeLevelUI.texture = currentLevelImage[upgradeData.currentLevel];
+            UpdateUI();
         }
     }
 
-    private void UpdateCost()
+    private void UpdateUI()
     {
-        if(UpgradeManager.Instance.upgradeData.TryGetValue(keyName, out var upgradeData))
+        // 이중 딕셔너리 구조에 맞게 접근
+        if (UpgradeManager.Instance.carUpgradeData.TryGetValue(carIndex, out var carUpgrades))
         {
-            int nextCost = upgradeData.GetCostByLevel();
+            if (carUpgrades.TryGetValue(keyName, out var upgradeData))
+            {
+                // 비용 텍스트 갱신
+                int nextCost = upgradeData.GetCostByLevel();
+                cost.text = (nextCost == -1) ? "MAX" : nextCost.ToString();
 
-            cost.text = (nextCost == -1) ? "MAX" : nextCost.ToString();
+                // 이미지 갱신
+                if (upgradeLevelUI != null && currentLevelImage.Length > upgradeData.currentLevel)
+                {
+                    upgradeLevelUI.texture = currentLevelImage[upgradeData.currentLevel];
+                }
+            }
         }
     }
 }
