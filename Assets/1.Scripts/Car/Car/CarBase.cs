@@ -116,7 +116,7 @@ public class CarBase : MonoBehaviour
             OnStop?.Invoke();
         }
 
-        if(carFuel.IsOutOfFuel)
+        if(carFuel.IsOutOfFuel && carBooster.IsOutOfBooster)
         {
             if(hasFuelEvent)
             {

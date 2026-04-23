@@ -1,13 +1,16 @@
 using UnityEngine;
+using UnityEngine.Audio;
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance { get; private set; }
 
     [Header("AudioSource (Optional)")]
     [Tooltip("비어 있으면 Awake에서 자동 생성한다. BGM 전용 AudioSource.")]
-    [SerializeField] private AudioSource bgmSource;
+    [SerializeField] public AudioSource bgmSource;
     [Tooltip("비어 있으면 Awake에서 자동 생성한다. SFX 전용 AudioSource.")]
-    [SerializeField] private AudioSource sfxSource;
+    [SerializeField] public AudioSource sfxSource;
+
+    [SerializeField ] public AudioMixer audioMixer;
 
     private void Awake()
     {
@@ -81,6 +84,11 @@ public class SoundManager : MonoBehaviour
         if (sfxSource == null)
         {
             sfxSource = gameObject.AddComponent<AudioSource>();
+        }
+
+        if(audioMixer ==  null)
+        {
+            audioMixer = GetComponent<AudioMixer>();
         }
 
         // 역할 분리를 위해 기본값을 명시적으로 지정한다.

@@ -4,7 +4,11 @@ using UnityEngine;
 public class RepairButton : MonoBehaviour
 {
     public static int CurrentIndex { get; private set; }
+
     public static event Action ChangeCarPanel;
+
+    public static event Action BuyCarAction;
+    public static event Action NeedMoneyAction;
 
     [SerializeField] private int cost;
 
@@ -34,6 +38,9 @@ public class RepairButton : MonoBehaviour
         if (PlayerMoney.Instance.GetMoney >= cost)
         {
             PlayerMoney.Instance.SpendMoney(cost);
+
+            BuyCarAction?.Invoke();
+          
             transform.parent.gameObject.SetActive(false);
 
             //jeep Â÷·®À» »ñÀ»‹š
@@ -47,5 +54,14 @@ public class RepairButton : MonoBehaviour
                 SendCarData.Instance.IsTruckUnLock = true;
             }
         }
+        else
+        {
+            NeedMoneyAction?.Invoke();
+        }
+    }
+
+    public void UndoButton()
+    {
+        UpgradeManager.Instance.UndoUpgrade();
     }
 }

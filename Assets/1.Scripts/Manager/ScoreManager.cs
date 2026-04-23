@@ -99,8 +99,8 @@ public class ScoreManager : MonoBehaviour
     private void ScoreToMoney()
     {
         int scoreForDistance = (int)(carSlider.value * totalDistance) * 10;
-        int scoreForDie = dieScore * 5;
-        int scoreForDestroy = destroyScore * 10;
+        int scoreForDie = dieScore * 10;
+        int scoreForDestroy = destroyScore * 20;
 
         int totalScore = scoreForDistance + scoreForDie + scoreForDestroy;
 
@@ -140,8 +140,8 @@ public class ScoreManager : MonoBehaviour
         scorePanel.SetActive(true);
 
         int distScore = (int)(carSlider.value * totalDistance) * 10;
-        int dieScoreText = (dieScore * 5);
-        int destoryScoreText = (destroyScore * 10);
+        int dieScoreText = (dieScore * 10);
+        int destoryScoreText = (destroyScore * 30);
 
         distanceText.text = distScore.ToString();
         dieText.text = dieScoreText.ToString();

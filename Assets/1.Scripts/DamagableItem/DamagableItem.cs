@@ -108,7 +108,7 @@ public class DamagableItem : MonoBehaviour, IDestroyable
     private void HitSFX(float impact)
     {
         int random = Random.Range(0, hitSFX.Length);
-        SoundManager.Instance.PlaySfxOneShot(hitSFX[random]);
+        SoundManager.Instance.PlaySfxOneShot(hitSFX[random], impact * 0.1f);
     }
 
     void IDestroyable.OnCollisionEnter2D(Collision2D collision)

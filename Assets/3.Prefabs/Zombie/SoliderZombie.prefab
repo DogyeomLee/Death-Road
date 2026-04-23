@@ -140,7 +140,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -0.0030415058, y: 0.07198024}
-  m_ConnectedAnchor: {x: -0.14804205, y: 0.064980194}
+  m_ConnectedAnchor: {x: -0.14804417, y: 0.064980194}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 805307304659875925}
   m_Layer: 0
   m_Name: SoliderZombie
-  m_TagString: Untagged
+  m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1527,7 +1527,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -0.0043959618, y: 0.073997736}
-  m_ConnectedAnchor: {x: 0.058605406, y: -0.10000229}
+  m_ConnectedAnchor: {x: 0.05859375, y: -0.10000229}
   m_UseConnectedAnchor: 1
   m_UseMotor: 1
   m_Motor:
@@ -1618,7 +1618,6 @@ GameObject:
   - component: {fileID: 8859470403358879273}
   - component: {fileID: 6245884842897459154}
   - component: {fileID: 5421757409676977995}
-  - component: {fileID: 6237425100095610048}
   m_Layer: 6
   m_Name: SoliderZombie
   m_TagString: Untagged
@@ -1692,9 +1691,6 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 393
-  bumperLayer:
-    serializedVersion: 2
-    m_Bits: 1024
   grenade: {fileID: 3593119239988184694}
   throwPower: 2
 --- !u!114 &4657019618056059297
@@ -1866,103 +1862,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!82 &6237425100095610048
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1528071514709259750}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &1752490904190117493
 GameObject:
   m_ObjectHideFlags: 0
@@ -8235,7 +8134,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0.038607836}
-  m_ConnectedAnchor: {x: 0.018997192, y: -0.18139204}
+  m_ConnectedAnchor: {x: 0.01900567, y: -0.18139204}
   m_UseConnectedAnchor: 1
   m_UseMotor: 1
   m_Motor:
@@ -8261,7 +8160,7 @@ FixedJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.018997192, y: -0.21999997}
+  m_ConnectedAnchor: {x: 0.01900567, y: -0.21999997}
   m_DampingRatio: 0
   m_Frequency: 10
 --- !u!114 &6323953642891635370
@@ -9268,7 +9167,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -0.0065939426, y: 0.0813241}
-  m_ConnectedAnchor: {x: -0.06859568, y: -0.045675702}
+  m_ConnectedAnchor: {x: -0.068596736, y: -0.04567623}
   m_UseConnectedAnchor: 1
   m_UseMotor: 1
   m_Motor:
@@ -9777,7 +9676,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0.0849998}
-  m_ConnectedAnchor: {x: 0.14099969, y: 0.054000225}
+  m_ConnectedAnchor: {x: 0.14099121, y: 0.053999692}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -15420,7 +15319,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0.01, y: 0.14}
-  m_ConnectedAnchor: {x: 0.00699891, y: -0.12399939}
+  m_ConnectedAnchor: {x: 0.007019043, y: -0.123999916}
   m_UseConnectedAnchor: 1
   m_UseMotor: 1
   m_Motor:
@@ -15633,7 +15532,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -0.018248558, y: -0.07198}
-  m_ConnectedAnchor: {x: -0.08178287, y: 0.16903296}
+  m_ConnectedAnchor: {x: -0.08178711, y: 0.16903242}
   m_UseConnectedAnchor: 1
   m_UseMotor: 1
   m_Motor:
@@ -16143,7 +16042,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0.1400001}
-  m_ConnectedAnchor: {x: -0.010994806, y: -0.14699963}
+  m_ConnectedAnchor: {x: -0.011003283, y: -0.1469999}
   m_UseConnectedAnchor: 1
   m_UseMotor: 1
   m_Motor:

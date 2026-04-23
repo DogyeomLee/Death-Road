@@ -27,9 +27,28 @@ public class GameStateManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    private const string SCENE_GAME = "GameScene";
+    private const string SCENE_REPAIR = "RepairScene";
+
     private GameState currentState;
 
     public GameState GetCurrentState => currentState;
+    private void OnEnable()
+    {
+        // 씬이 로드될 때마다 이 함수가 실행되도록 등록
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        // 메모리 누수 방지를 위해 해제
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        ChangeGameStateByScene();
+    }
 
     private void ChangeState(GameState nextState)
     {
@@ -42,43 +61,23 @@ public class GameStateManager : MonoBehaviour
         //이벤트 구현시 발동 구간// 여기
     }
 
-    private void Update()
-    {
-        ChangeGameStateByScene();
-    }
 
     public void ChangeGameStateByScene()
     {
         Scene activeScene = SceneManager.GetActiveScene();
         
-        switch (currentState)
+        switch (activeScene.name)
         {
-            case GameState.None:
-
-                if (activeScene.name == "GameScene")
-                {
-                    ChangeState(GameState.Play);
-                }
+            case SCENE_GAME:
+                UpgradeManager.Instance.ClearUndoStack();
+                ChangeState(GameState.Play);
                 break;
-            case GameState.Repair:
-                if (activeScene.name == "GameScene")
-                {
-                    ChangeState(GameState.Play);
-                }
-                else
-                {
-                    ChangeState(GameState.None);
-                }
+            case SCENE_REPAIR:
+                ChangeState(GameState.Repair);
                 break;
-            case GameState.Play:
-                if (activeScene.name == "RepairScene")
-                {
-                    ChangeState(GameState.Repair);
-                }
-                else if (activeScene.name != "GameScene")
-                {
-                    ChangeState(GameState.None);
-                }
+            default :
+                UpgradeManager.Instance.ClearUndoStack();
+                ChangeState(GameState.None);
                 break;
         }
     }

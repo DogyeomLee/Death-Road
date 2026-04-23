@@ -62,7 +62,7 @@ public class ZombieEffect : MonoBehaviour
     {
         int hitRandom = Random.Range(0, hitSFX.Length);
         //충돌에 따라 소리 조절, 두번쨰 매개변수
-        SoundManager.Instance.PlaySfxOneShot(hitSFX[hitRandom], (impact * 0.35f));
+        SoundManager.Instance.PlaySfxOneShot(hitSFX[hitRandom], (impact * 0.1f));
     }
 
 }

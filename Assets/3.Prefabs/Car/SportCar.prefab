@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 423667293601810294}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.141, y: 0.332, z: 0}
+  m_LocalPosition: {x: 0.1, y: 0.33, z: 0}
   m_LocalScale: {x: 0.6666667, y: 0.6666667, z: 0.6666667}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -203,7 +203,7 @@ Transform:
   m_GameObject: {fileID: 580987506657018365}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.803, y: 0.082, z: 0}
+  m_LocalPosition: {x: -0.8, y: 0.08, z: 0}
   m_LocalScale: {x: 0.6666667, y: 0.6666667, z: 0.6666667}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -684,7 +684,7 @@ AudioSource:
   m_GameObject: {fileID: 1574146251513768733}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 9020293521328845458, guid: 8685816f0d7e265499ef8ec35a7d809f, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
@@ -860,11 +860,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1ab7ba89cbf4247a45c62a10148a05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarBooster
-  maxBooster: 10
+  maxBooster: 0
   maxLevelBooster: 50
-  boosterPower: 500
+  boosterPower: 700
   currentBooster: 0
-  boosterpendAmount: 5
+  boosterpendAmount: 2
   boosterAnimation: {fileID: 865675153950174010}
   rb: {fileID: 0}
 --- !u!114 &8279817729601277741
@@ -931,6 +931,7 @@ GameObject:
   - component: {fileID: 8510882171801092138}
   - component: {fileID: 5261460198709056562}
   - component: {fileID: 5117279731605324844}
+  - component: {fileID: 5762546128031100007}
   m_Layer: 10
   m_Name: Bumper
   m_TagString: Untagged
@@ -947,7 +948,7 @@ Transform:
   m_GameObject: {fileID: 1972720217239886270}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.7273333, y: -0.03066667, z: 0}
+  m_LocalPosition: {x: 0.71, y: -0.03, z: 0}
   m_LocalScale: {x: 0.6666667, y: 0.6666667, z: 0.6666667}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1083,6 +1084,21 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &5762546128031100007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972720217239886270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d598519a8d4ee294b9e643686b94e73a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CarBumper
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 321
 --- !u!1 &3561521263685702043
 GameObject:
   m_ObjectHideFlags: 0
@@ -1109,7 +1125,7 @@ Transform:
   m_GameObject: {fileID: 3561521263685702043}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.721, y: 0.006, z: 0}
+  m_LocalPosition: {x: -0.7210007, y: 0.005999883, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1195,7 +1211,7 @@ Transform:
   m_GameObject: {fileID: 7197893610715916676}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.40417528, y: -0.193, z: 0}
+  m_LocalPosition: {x: -0.42, y: -0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1349,7 +1365,7 @@ Transform:
   m_GameObject: {fileID: 8719702741361629330}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.721, y: -0.069, z: 0}
+  m_LocalPosition: {x: 0.7210007, y: -0.06899993, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1435,7 +1451,7 @@ Transform:
   m_GameObject: {fileID: 8889167918058894263}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.4665103, y: -0.18231687, z: 0}
+  m_LocalPosition: {x: 0.47, y: -0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

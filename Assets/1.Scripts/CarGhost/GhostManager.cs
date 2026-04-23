@@ -7,14 +7,46 @@ public struct GhostData //구조체로 메모리 상에서 성능 유리. 복사 또한 편하게
     public float time;
     public Vector2 position;
     public float rotation;
+    public int carIndex; // 차량 고유 인덱스 추가
 
-    //생성자로 초기화 한다.
-    public GhostData(float t, Vector2 pos, float rot)
+    //파츠 활성화 여부 데이터
+    public bool hasGun;
+    public bool hasBooster;
+    public bool hasBumper;
+
+    public GhostData(float t, Vector2 pos, float rot, int index, bool g, bool b, bool p)
     {
         time = t;
         position = pos;
         rotation = rot;
+        carIndex = index;
+        hasGun = g;
+        hasBooster = b;
+        hasBumper = p;
     }
+}
+
+//클래스 로 참조해서 처리한다. 구조체로 하면 복사본만 바뀐다.
+[System.Serializable]
+public class CarVisualData
+{
+    public int carIndex;
+
+    public Sprite carSprite;
+    public Sprite wheelSprite; // 앞/뒤가 같다면 하나로, 다르면 두 개로 분리
+    public Sprite gunSprite;
+    public Sprite boosterSprite;
+    public Sprite bumperSprite;
+
+    //파츠별 위치 오프셋 (Local Position)
+    public Vector2 gunOffset;
+    public Vector2 boosterOffset;
+    public Vector2 bumperOffset;
+
+    public Vector2 wheel1Offset;
+    public Vector2 wheel2Offset;
+
+    public Vector2 wheelScale;
 }
 
 public class GhostManager : MonoBehaviour
@@ -47,11 +79,11 @@ public class GhostManager : MonoBehaviour
     [SerializeField]
     private SpriteRenderer spriteRenderer;
     [SerializeField]
-    private Transform thisGun;
+    private SpriteRenderer thisGun;
     [SerializeField]
-    private Transform thisBooster;
+    private SpriteRenderer thisBooster;
     [SerializeField]
-    private Transform thisBumper;
+    private SpriteRenderer thisBumper;
     [SerializeField]
     private Transform gun;
     [SerializeField]
@@ -71,6 +103,9 @@ public class GhostManager : MonoBehaviour
 
     private List<GhostData> currentRecording = new List<GhostData>(); // 지금 움직임을 저장 중
     public List<GhostData> savedGhostData = new List<GhostData>();    // 이전 기록(고스트로 재생할 데이터)
+    
+    [Header("차량 비주얼 데이터베이스")]
+    [SerializeField] private List<CarVisualData> carDatabase;
 
     [Header("기록 임계값")]
     public float recordInterval = 0.1f; // 0.1초마다 기록
@@ -148,7 +183,15 @@ public class GhostManager : MonoBehaviour
         if (recordTimer - lastRecordTime >= recordInterval)
         {
             // 데이터 기록
-            currentRecording.Add(new GhostData(recordTimer, car.transform.position, car.transform.eulerAngles.z));
+            currentRecording.Add(new GhostData(
+             recordTimer,
+             car.transform.position,
+             car.transform.eulerAngles.z,
+             car.carIndex,
+             gun.gameObject.activeSelf,    // Gun 상태 저장
+             booster.gameObject.activeSelf,// Booster 상태 저장
+             bumper.gameObject.activeSelf  // Bumper 상태 저장
+         ));
 
             //이렇게 하면, if 문에서 두 시간사이의 초 를 가져올수있다.
             lastRecordTime = recordTimer;
@@ -167,7 +210,39 @@ public class GhostManager : MonoBehaviour
         playTimer = 0f;
         currentIndex = 0;
         isPlaying = true;
+
+        ApplyGhostVisuals(playData[0].carIndex);
     }
+
+    private void ApplyGhostVisuals(int index)
+    {
+        // 데이터베이스에서 인덱스 찾기
+        CarVisualData visual = carDatabase.Find(x => x.carIndex == index);
+
+        if (visual != null)
+        {
+            thisCar.sprite = visual.carSprite;
+            wheel1.sprite = visual.wheelSprite;
+            wheel2.sprite = visual.wheelSprite;
+
+            // 추가 파츠 활성화 여부
+            thisGun.sprite = visual.gunSprite;
+            thisBooster.sprite = visual.boosterSprite;
+            thisBumper.sprite = visual.bumperSprite;
+
+            // 위치(Offset) 적용
+            thisGun.transform.localPosition = visual.gunOffset;
+            thisBooster.transform.localPosition = visual.boosterOffset;
+            thisBumper.transform.localPosition = visual.bumperOffset;
+
+            wheel1.transform.localPosition = visual.wheel1Offset;
+            wheel2.transform.localPosition = visual.wheel2Offset;
+
+            wheel1.transform.localScale = visual.wheelScale;
+            wheel2.transform.localScale= visual.wheelScale;
+        }
+    }
+
     public void ResetRecordingSession()
     {
         recordTimer = 0f;
@@ -177,15 +252,14 @@ public class GhostManager : MonoBehaviour
 
     private void PlayRecord()
     {
-
-        //차량 고스트의 데이터가 없으면 X
         if (!isPlaying || playData == null || playData.Count < 2)
         {
-            thisCar.gameObject.SetActive(false);
+            if (thisCar.gameObject.activeSelf) // 켜져 있을 때만 끔
+                thisCar.gameObject.SetActive(false);
             return;
         }
 
-        if(!thisCar.gameObject.activeSelf)
+        if (!thisCar.gameObject.activeSelf) // 꺼져 있을 때만 켬
         {
             thisCar.gameObject.SetActive(true);
         }
@@ -215,5 +289,10 @@ public class GhostManager : MonoBehaviour
         //Vector2.Lerp와 Mathf.LerpAngle로 부드럽게 보간
         transform.position = Vector2.Lerp(start.position, end.position, ratio);
         transform.rotation = Quaternion.Euler(0, 0, Mathf.LerpAngle(start.rotation, end.rotation, ratio));
+
+        // 파츠 상태 적용 (실시간으로 변경사항 반영)
+    thisGun.gameObject.SetActive(start.hasGun);
+    thisBooster.gameObject.SetActive(start.hasBooster);
+    thisBumper.gameObject.SetActive(start.hasBumper);
     }
 }

@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 980221805756018386}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.871, y: -0.43, z: 0}
+  m_LocalPosition: {x: 0.87, y: -0.44, z: 0}
   m_LocalScale: {x: 1.6, y: 1.6, z: 1.6}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -185,7 +185,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3651213149000720992
 Transform:
   m_ObjectHideFlags: 0
@@ -196,7 +196,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.372, y: 1.634, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7005267475069805167}
@@ -450,7 +450,7 @@ AudioSource:
   m_GameObject: {fileID: 1381551012186647002}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 9020293521328845458, guid: 8685816f0d7e265499ef8ec35a7d809f, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
@@ -626,12 +626,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1ab7ba89cbf4247a45c62a10148a05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarBooster
-  maxBooster: 10
+  maxBooster: 0
   maxLevelBooster: 50
-  boosterPower: 500
+  boosterPower: 700
   currentBooster: 0
-  boosterpendAmount: 5
-  boosterAnimation: {fileID: 0}
+  boosterpendAmount: 2
+  boosterAnimation: {fileID: 6056230973292688350}
   rb: {fileID: 0}
 --- !u!114 &8938681679112477958
 MonoBehaviour:
@@ -714,7 +714,7 @@ Transform:
   m_GameObject: {fileID: 2590768793307433384}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.427, y: 0.586, z: 0}
+  m_LocalPosition: {x: 0.4, y: 0.58, z: 0}
   m_LocalScale: {x: 0.6666667, y: 0.6666667, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -854,7 +854,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   animator: {fileID: 6319936632357428514}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 7602599990551281995}
   gunSFX:
   - {fileID: 8300000, guid: 5e7eff41b305c4c4da6186f1b8db1c2f, type: 3}
   - {fileID: 8300000, guid: 98ab6404d0ca6b541bd72feed6fedabf, type: 3}
@@ -1056,7 +1056,7 @@ Transform:
   m_GameObject: {fileID: 5045635298169428371}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.5794883, y: 0.01771172, z: 0}
+  m_LocalPosition: {x: -0.192, y: 0.03, z: 0}
   m_LocalScale: {x: 0.6666667, y: 0.6666667, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1111,12 +1111,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -855298285791758126, guid: b18c7c2988245ff4a9ed06648a41e254, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1c2221f76d20ced4cb35ef394f73248d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.86, y: 0.88}
+  m_Size: {x: 2.66, y: 1.42}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1266,6 +1266,7 @@ GameObject:
   - component: {fileID: 977610501612761503}
   - component: {fileID: 332115587618439738}
   - component: {fileID: 871293800303079436}
+  - component: {fileID: 2173280440358124910}
   m_Layer: 10
   m_Name: Bumper
   m_TagString: Untagged
@@ -1282,9 +1283,9 @@ Transform:
   m_GameObject: {fileID: 5895239822277843525}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.8606667, y: -0.015999954, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1.5}
-  m_ConstrainProportionsScale: 1
+  m_LocalPosition: {x: 0.9, y: -0.05, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3651213149000720992}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1337,7 +1338,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -417808653775526200, guid: 37dd1df4ee7f60b4084c2aed9efacd93, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 37dd1df4ee7f60b4084c2aed9efacd93, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1415,6 +1416,21 @@ PolygonCollider2D:
       - {x: 0.545, y: -0.44}
       - {x: 0.415, y: -0.06}
   m_UseDelaunayMesh: 1
+--- !u!114 &2173280440358124910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5895239822277843525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d598519a8d4ee294b9e643686b94e73a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CarBumper
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 321
 --- !u!1 &8667722723301037779
 GameObject:
   m_ObjectHideFlags: 0
@@ -1443,7 +1459,7 @@ Transform:
   m_GameObject: {fileID: 8667722723301037779}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.70000005, y: -0.44699997, z: 0}
+  m_LocalPosition: {x: -0.7, y: -0.44, z: 0}
   m_LocalScale: {x: 1.6, y: 1.6, z: 1.6}
   m_ConstrainProportionsScale: 0
   m_Children: []
