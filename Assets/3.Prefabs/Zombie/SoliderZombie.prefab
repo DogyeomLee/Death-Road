@@ -140,7 +140,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -0.0030415058, y: 0.07198024}
-  m_ConnectedAnchor: {x: -0.14804417, y: 0.064980194}
+  m_ConnectedAnchor: {x: -0.14804152, y: 0.06498033}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -901,7 +901,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
@@ -1527,7 +1527,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -0.0043959618, y: 0.073997736}
-  m_ConnectedAnchor: {x: 0.05859375, y: -0.10000229}
+  m_ConnectedAnchor: {x: 0.05860403, y: -0.10000229}
   m_UseConnectedAnchor: 1
   m_UseMotor: 1
   m_Motor:
@@ -1663,7 +1663,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
+  m_AnimatePhysics: 1
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -1722,7 +1722,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZombieMovement
   moveSpeed: 3
-  animator: {fileID: 0}
+  animator: {fileID: 4505015579115215295}
   rb: {fileID: 5421757409676977995}
 --- !u!114 &3594633607660805908
 MonoBehaviour:
@@ -1846,8 +1846,8 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 1
-  m_Mass: 0.43480965
+  m_UseAutoMass: 0
+  m_Mass: 1.3
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
@@ -1858,7 +1858,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
@@ -8134,7 +8134,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0.038607836}
-  m_ConnectedAnchor: {x: 0.01900567, y: -0.18139204}
+  m_ConnectedAnchor: {x: 0.019000007, y: -0.18139218}
   m_UseConnectedAnchor: 1
   m_UseMotor: 1
   m_Motor:
@@ -8160,7 +8160,7 @@ FixedJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.01900567, y: -0.21999997}
+  m_ConnectedAnchor: {x: 0.019000007, y: -0.21999997}
   m_DampingRatio: 0
   m_Frequency: 10
 --- !u!114 &6323953642891635370
@@ -9167,7 +9167,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -0.0065939426, y: 0.0813241}
-  m_ConnectedAnchor: {x: -0.068596736, y: -0.04567623}
+  m_ConnectedAnchor: {x: -0.06859392, y: -0.045675967}
   m_UseConnectedAnchor: 1
   m_UseMotor: 1
   m_Motor:
@@ -9676,7 +9676,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0.0849998}
-  m_ConnectedAnchor: {x: 0.14099121, y: 0.053999692}
+  m_ConnectedAnchor: {x: 0.14099999, y: 0.053999826}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -15319,7 +15319,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0.01, y: 0.14}
-  m_ConnectedAnchor: {x: 0.007019043, y: -0.123999916}
+  m_ConnectedAnchor: {x: 0.007000003, y: -0.12400005}
   m_UseConnectedAnchor: 1
   m_UseMotor: 1
   m_Motor:
@@ -15532,7 +15532,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -0.018248558, y: -0.07198}
-  m_ConnectedAnchor: {x: -0.08178711, y: 0.16903242}
+  m_ConnectedAnchor: {x: -0.08177976, y: 0.16903256}
   m_UseConnectedAnchor: 1
   m_UseMotor: 1
   m_Motor:
@@ -16042,7 +16042,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0.1400001}
-  m_ConnectedAnchor: {x: -0.011003283, y: -0.1469999}
+  m_ConnectedAnchor: {x: -0.011000005, y: -0.14699976}
   m_UseConnectedAnchor: 1
   m_UseMotor: 1
   m_Motor:
@@ -16436,7 +16436,7 @@ Transform:
   m_GameObject: {fileID: 8677115832484720815}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.254002, y: -0.039999753, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
   m_ConstrainProportionsScale: 0
   m_Children:

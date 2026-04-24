@@ -14848,7 +14848,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HangZombie
   diePower: 6
-  destoryPower: 30
+  destoryPower: 25
   zombieMovement: {fileID: 2901493929160881383}
   zombieFSMManager: {fileID: 7520054696787016608}
   zombieRagdoll: {fileID: 1840006403474706169}

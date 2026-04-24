@@ -58,4 +58,9 @@ public class setting : MonoBehaviour
     {
         settingPanel.SetActive(false);
     }
+
+    public void ExitButton()
+    {
+        Application.Quit();
+    }
 }

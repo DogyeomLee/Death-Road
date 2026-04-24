@@ -140,7 +140,7 @@ AudioSource:
   m_GameObject: {fileID: 306486283309337238}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 9020293521328845458, guid: 8685816f0d7e265499ef8ec35a7d809f, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
@@ -341,7 +341,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &9197107856015411860
 Transform:
   m_ObjectHideFlags: 0
@@ -550,7 +550,7 @@ WheelJoint2D:
   m_Anchor: {x: 0.58, y: -0.3}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_Suspension:
-    m_DampingRatio: 0.7
+    m_DampingRatio: 0.35
     m_Frequency: 2
     m_Angle: 90
   m_UseMotor: 0
@@ -575,7 +575,7 @@ WheelJoint2D:
   m_Anchor: {x: -0.53, y: -0.3}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_Suspension:
-    m_DampingRatio: 0.7
+    m_DampingRatio: 0.35
     m_Frequency: 2
     m_Angle: 90
   m_UseMotor: 0
@@ -723,7 +723,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CarMovement
   speed: 2000
   maxTorque: 1000
-  rotationSpeed: 100
+  rotationSpeed: 200
   BackWheel: {fileID: 5120806748303539096}
   rb: {fileID: 1086416796115938533}
   stopTimer: 0
@@ -971,7 +971,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 616eb8c209debf04aa75220651aa5faa, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1323,7 +1323,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 616eb8c209debf04aa75220651aa5faa, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

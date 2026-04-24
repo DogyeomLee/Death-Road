@@ -2,15 +2,13 @@ using UnityEngine;
 
 public class EndGame : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] private LayerMask CarLayer;
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if ((CarLayer.value & (1 << collision.gameObject.layer)) != 0)
+        {
+            GameSceneManager.Instance.LoadSceneAsyncByName("EndScene");
+        }
     }
 }

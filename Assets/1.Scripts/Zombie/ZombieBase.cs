@@ -97,8 +97,8 @@ public class ZombieBase : MonoBehaviour, IDestroyable
         OnDie?.Invoke();
         OnDieForUI?.Invoke();
 
-        zombieFSMManager.ChangeStateToDead();
         zombieMovement.DieZombie();
+        zombieFSMManager.ChangeStateToDead();
         zombieRagdoll.DieZombie();
     }
 

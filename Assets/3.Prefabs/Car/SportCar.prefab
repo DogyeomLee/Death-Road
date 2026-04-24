@@ -314,7 +314,7 @@ AudioSource:
   m_GameObject: {fileID: 580987506657018365}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 9020293521328845458, guid: 8685816f0d7e265499ef8ec35a7d809f, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
@@ -614,7 +614,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 616eb8c209debf04aa75220651aa5faa, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -816,7 +816,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CarMovement
   speed: 2000
   maxTorque: 1000
-  rotationSpeed: 70
+  rotationSpeed: 200
   BackWheel: {fileID: 3417846721147579609}
   rb: {fileID: 1250001867162530159}
   stopTimer: 0

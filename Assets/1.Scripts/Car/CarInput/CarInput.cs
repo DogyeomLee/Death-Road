@@ -17,6 +17,7 @@ public class CarInput : MonoBehaviour
 
     public bool IsOnBooster => HandleBooster();
 
+
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();

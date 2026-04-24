@@ -26,6 +26,8 @@ public class MoneyUI : MonoBehaviour
 
         RepairButton.BuyCarAction += BuyCar;
         RepairButton.NeedMoneyAction += FailUpgrade;
+
+        Cheat.OnShowMeTheMoney += ShowMeTheMoney;
     }
 
     private void OnDisable()
@@ -35,6 +37,8 @@ public class MoneyUI : MonoBehaviour
 
         RepairButton.BuyCarAction -= BuyCar;
         RepairButton.NeedMoneyAction -= FailUpgrade;
+
+        Cheat.OnShowMeTheMoney -= ShowMeTheMoney;
     }
 
     // 수정: int 매개변수를 받도록 변경 (전달받은 carIndex를 사용하지 않더라도 선언은 필수)
@@ -70,5 +74,15 @@ public class MoneyUI : MonoBehaviour
     private void EmptyText()
     {
         upgradeText.text = " ";
+    }
+
+    private void ShowMeTheMoney()
+    {
+        upgradeText.text = "치트 사용!";
+        SoundManager.Instance.PlaySfxOneShot(moneySFX[0], 1);
+        moneyText.text = PlayerMoney.Instance.GetMoney.ToString();
+
+        CancelInvoke("EmptyText"); // 중복 실행 방지를 위해 기존 예약 취소
+        Invoke("EmptyText", 1.0f);
     }
 }

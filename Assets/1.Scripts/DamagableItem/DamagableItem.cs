@@ -4,7 +4,6 @@ public class DamagableItem : MonoBehaviour, IDestroyable
 {
     [Header("파괴 설정")]
     [SerializeField] private float neededPower;
-    [SerializeField] private Rigidbody2D rigidbody2D;
     [SerializeField] protected LayerMask targetLayer;
 
     [SerializeField] protected LayerMask bumperLayer;
@@ -22,7 +21,6 @@ public class DamagableItem : MonoBehaviour, IDestroyable
     private void Awake()
     {
         isDestroyed = false;
-        rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
     public virtual void Destroy(float speed, float force)
@@ -66,15 +64,6 @@ public class DamagableItem : MonoBehaviour, IDestroyable
 
             HitSFX(impactForce);
             Destroy(impactForce, impactForce * 0.15f);
-        }
-
-        if ((bumperLayer.value & (1 << collision.gameObject.layer)) != 0)
-        {
-            float impactForce = collision.relativeVelocity.magnitude;
-
-            //1로 설정
-            HitSFX(1f / 0.35f);
-            Destroy();
         }
     }
 
