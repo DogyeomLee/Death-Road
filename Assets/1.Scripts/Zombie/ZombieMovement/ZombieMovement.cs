@@ -58,8 +58,4 @@ public class ZombieMovement : MonoBehaviour
         animator.enabled = false;
     }
 
-    public void OffAnimation(float exitTime)
-    {
-
-    }
 }

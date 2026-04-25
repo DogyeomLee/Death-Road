@@ -110,8 +110,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1.3
-  m_LinearDamping: 1
-  m_AngularDamping: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -140,7 +140,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -0.0030415058, y: 0.07198024}
-  m_ConnectedAnchor: {x: -0.14804152, y: 0.06498033}
+  m_ConnectedAnchor: {x: -0.14803992, y: 0.064980194}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -359,8 +359,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1.3
-  m_LinearDamping: 1
-  m_AngularDamping: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -1497,8 +1497,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1.3
-  m_LinearDamping: 1
-  m_AngularDamping: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -1527,7 +1527,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -0.0043959618, y: 0.073997736}
-  m_ConnectedAnchor: {x: 0.05860403, y: -0.10000229}
+  m_ConnectedAnchor: {x: 0.05860435, y: -0.10000229}
   m_UseConnectedAnchor: 1
   m_UseMotor: 1
   m_Motor:
@@ -8104,8 +8104,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1.3
-  m_LinearDamping: 1
-  m_AngularDamping: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -8134,7 +8134,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0.038607836}
-  m_ConnectedAnchor: {x: 0.019000007, y: -0.18139218}
+  m_ConnectedAnchor: {x: 0.019001432, y: -0.18139204}
   m_UseConnectedAnchor: 1
   m_UseMotor: 1
   m_Motor:
@@ -8160,7 +8160,7 @@ FixedJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.019000007, y: -0.21999997}
+  m_ConnectedAnchor: {x: 0.019001432, y: -0.21999997}
   m_DampingRatio: 0
   m_Frequency: 10
 --- !u!114 &6323953642891635370
@@ -8921,8 +8921,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1.3
-  m_LinearDamping: 1
-  m_AngularDamping: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -9137,8 +9137,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1.3
-  m_LinearDamping: 1
-  m_AngularDamping: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -9167,7 +9167,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -0.0065939426, y: 0.0813241}
-  m_ConnectedAnchor: {x: -0.06859392, y: -0.045675967}
+  m_ConnectedAnchor: {x: -0.06859462, y: -0.04567623}
   m_UseConnectedAnchor: 1
   m_UseMotor: 1
   m_Motor:
@@ -9646,8 +9646,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1.3
-  m_LinearDamping: 1
-  m_AngularDamping: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -9676,7 +9676,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0.0849998}
-  m_ConnectedAnchor: {x: 0.14099999, y: 0.053999826}
+  m_ConnectedAnchor: {x: 0.1410018, y: 0.053999692}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -10194,8 +10194,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1.3
-  m_LinearDamping: 1
-  m_AngularDamping: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -15289,8 +15289,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1.3
-  m_LinearDamping: 1
-  m_AngularDamping: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -15319,7 +15319,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0.01, y: 0.14}
-  m_ConnectedAnchor: {x: 0.007000003, y: -0.12400005}
+  m_ConnectedAnchor: {x: 0.0069999695, y: -0.124000184}
   m_UseConnectedAnchor: 1
   m_UseMotor: 1
   m_Motor:
@@ -15502,8 +15502,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1.3
-  m_LinearDamping: 1
-  m_AngularDamping: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -15532,7 +15532,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -0.018248558, y: -0.07198}
-  m_ConnectedAnchor: {x: -0.08177976, y: 0.16903256}
+  m_ConnectedAnchor: {x: -0.08177864, y: 0.16903296}
   m_UseConnectedAnchor: 1
   m_UseMotor: 1
   m_Motor:
@@ -16012,8 +16012,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1.3
-  m_LinearDamping: 1
-  m_AngularDamping: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -16042,7 +16042,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0.1400001}
-  m_ConnectedAnchor: {x: -0.011000005, y: -0.14699976}
+  m_ConnectedAnchor: {x: -0.010999044, y: -0.14699963}
   m_UseConnectedAnchor: 1
   m_UseMotor: 1
   m_Motor:

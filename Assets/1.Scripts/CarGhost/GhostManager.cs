@@ -4,10 +4,10 @@ using System.Collections.Generic;
 [System.Serializable]
 public struct GhostData //구조체로 메모리 상에서 성능 유리. 복사 또한 편하게
 {
+    public int carIndex; // 차량 고유 인덱스 추가
     public float time;
     public Vector2 position;
     public float rotation;
-    public int carIndex; // 차량 고유 인덱스 추가
 
     //파츠 활성화 여부 데이터
     public bool hasGun;
@@ -97,8 +97,6 @@ public class GhostManager : MonoBehaviour
     private float recordTimer = 0f; // 기록용 타이머
     private float playTimer = 0f;   // 재생용 타이머
 
-    private int currentIndex = 0;
-
     public bool isPlaying = false;
 
     private List<GhostData> currentRecording = new List<GhostData>(); // 지금 움직임을 저장 중
@@ -114,6 +112,8 @@ public class GhostManager : MonoBehaviour
 
     private bool hasChecked = false;
 
+    private int lastAppliedIndex = -1;
+    private int currentIndex = 0;
 
     private void Update()
     {
@@ -149,6 +149,7 @@ public class GhostManager : MonoBehaviour
             }
         }
     }
+
     public void SetTargetCar(CarBase newCar)
     {
         this.car = newCar;
@@ -182,6 +183,7 @@ public class GhostManager : MonoBehaviour
         // 시작점 보장
         if (recordTimer - lastRecordTime >= recordInterval)
         {
+            Debug.Log($"[저장] 현재 carIndex: {car.carIndex}");
             // 데이터 기록
             currentRecording.Add(new GhostData(
              recordTimer,
@@ -211,6 +213,7 @@ public class GhostManager : MonoBehaviour
         currentIndex = 0;
         isPlaying = true;
 
+        Debug.Log($"[재생 시작] 첫 번째 데이터의 인덱스: {playData[0].carIndex}");
         ApplyGhostVisuals(playData[0].carIndex);
     }
 
@@ -264,6 +267,12 @@ public class GhostManager : MonoBehaviour
             thisCar.gameObject.SetActive(true);
         }
 
+        if (lastAppliedIndex != currentIndex)
+        {
+            ApplyGhostVisuals(playData[currentIndex].carIndex);
+            lastAppliedIndex = currentIndex;
+        }
+
         playTimer += Time.deltaTime;
 
         //현재 시간보다 미래에 있는 데이터 찾기
@@ -291,8 +300,8 @@ public class GhostManager : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, Mathf.LerpAngle(start.rotation, end.rotation, ratio));
 
         // 파츠 상태 적용 (실시간으로 변경사항 반영)
-    thisGun.gameObject.SetActive(start.hasGun);
-    thisBooster.gameObject.SetActive(start.hasBooster);
-    thisBumper.gameObject.SetActive(start.hasBumper);
+        thisGun.gameObject.SetActive(start.hasGun);
+        thisBooster.gameObject.SetActive(start.hasBooster);
+        thisBumper.gameObject.SetActive(start.hasBumper);
     }
 }

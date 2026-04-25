@@ -454,7 +454,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Barrel
   neededPower: 7
-  rigidbody2D: {fileID: 0}
   targetLayer:
     serializedVersion: 2
     m_Bits: 457
@@ -480,7 +479,7 @@ MonoBehaviour:
   - {fileID: 1885978325387604027}
   explosionPos: {x: 0, y: 0}
   radius: 3
-  explosionForce: 10
+  explosionForce: 7.77
   explosionLayer:
     serializedVersion: 2
     m_Bits: 833

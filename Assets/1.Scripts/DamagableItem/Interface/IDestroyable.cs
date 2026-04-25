@@ -11,6 +11,8 @@ public interface IDestroyable
     /// <param name = "force">ÆÄ±« ½Ã ³¯¶ó°¡´Â Èû</param>
     void Destroy(float speed, float force);
 
+    void Destroy();
+
     /// <summary>
     /// Ãæµ¹½Ã ÆÄ±«
     /// </summary>

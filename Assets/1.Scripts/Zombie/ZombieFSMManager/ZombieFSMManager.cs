@@ -7,7 +7,7 @@ public enum ZombieState
     Idle,
     Chase,
     Attack,
-    hang,
+    Hang,
     Dead
 }
 
@@ -66,7 +66,7 @@ public class ZombieFSMManager : MonoBehaviour
                 }
                 else if(sqrDist <=  hangSqr )
                 {
-                    ChangeState(ZombieState.hang);
+                    ChangeState(ZombieState.Hang);
                 }
                  break;
 
@@ -77,7 +77,7 @@ public class ZombieFSMManager : MonoBehaviour
                 }
                 break;
 
-            case ZombieState.hang:
+            case ZombieState.Hang:
                 
                 break;
         }

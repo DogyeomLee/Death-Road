@@ -143,9 +143,9 @@ public class ScoreManager : MonoBehaviour
         int dieScoreText = (dieScore * 10);
         int destoryScoreText = (destroyScore * 30);
 
-        distanceText.text = distScore.ToString();
-        dieText.text = dieScoreText.ToString();
-        destroyText.text = destoryScoreText.ToString();
+        distanceText.text = "거리 : " + distScore.ToString();
+        dieText.text = "좀비 킬 : " + dieScore.ToString() + " x 10";
+        destroyText.text = "좀비 파괴 : " + destroyScore.ToString() + " x 30";
 
         totalText.text = (distScore + dieScoreText + destoryScoreText).ToString();
     }

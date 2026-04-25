@@ -34,7 +34,7 @@ public class HangZombie : ZombieBase
     {
        base.Update();
 
-        if (zombieFSMManager.CurrentState == ZombieState.hang)
+        if (zombieFSMManager.CurrentState == ZombieState.Hang)
         {
             if (!hasDived) // 아직 다이브를 안 했다면
             {

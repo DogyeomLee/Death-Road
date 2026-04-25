@@ -769,7 +769,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CarBooster
   maxBooster: 0
   maxLevelBooster: 50
-  boosterPower: 700
+  boosterPower: 1200
   currentBooster: 0
   boosterpendAmount: 2
   boosterAnimation: {fileID: 7214676285334436171}
@@ -825,7 +825,7 @@ MonoBehaviour:
   carFuel: {fileID: 1075175728600155880}
   carBooster: {fileID: 5659627777698125795}
   carUpgrade: {fileID: 166397741481561530}
-  thisCar: {fileID: 0}
+  thisCar: {fileID: 1086416796115938533}
 --- !u!1 &6039058495377857800
 GameObject:
   m_ObjectHideFlags: 0
